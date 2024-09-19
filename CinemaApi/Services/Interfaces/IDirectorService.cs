@@ -1,6 +1,6 @@
 ﻿using CinemaApi.Models;
 
-namespace CinemaApi.Services.Contract
+namespace CinemaApi.Services.Interfaces
 {
     public interface IDirectorService
     {

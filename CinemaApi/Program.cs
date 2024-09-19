@@ -2,6 +2,8 @@ using CinemaApi.Models;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.EntityFrameworkCore;
 using System;
+using CinemaApi.Services.Interfaces;
+using CinemaApi.Services.Clases;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,10 @@ builder.Services.AddDbContext<CinemaDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("Connection"));
 });
+
+builder.Services.AddScoped<IMusicService,MusicService>();
+builder.Services.AddScoped<IDirectorService,DirectorService>();
+builder.Services.AddScoped<IMovieService,MovieService>();
 
 var app = builder.Build();
 
