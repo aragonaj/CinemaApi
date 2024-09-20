@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using CinemaApi.Services.Interfaces;
 using CinemaApi.Services.Clases;
+using AutoMapper;
+using CinemaApi.DTOs;
+using CinemaApi.Utilities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +25,8 @@ builder.Services.AddScoped<IDirectorService, DirectorService>();
 builder.Services.AddScoped<IMovieService, MovieService>();
 builder.Services.AddScoped<IMovieDirectorService, MovieDirectorService>();
 builder.Services.AddScoped<IMovieMusicService, MovieMusicService>();
+
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
 var app = builder.Build();
 
