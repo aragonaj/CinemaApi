@@ -17,9 +17,11 @@ builder.Services.AddDbContext<CinemaDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Connection"));
 });
 
-builder.Services.AddScoped<IMusicService,MusicService>();
-builder.Services.AddScoped<IDirectorService,DirectorService>();
-builder.Services.AddScoped<IMovieService,MovieService>();
+builder.Services.AddScoped<IMusicService, MusicService>();
+builder.Services.AddScoped<IDirectorService, DirectorService>();
+builder.Services.AddScoped<IMovieService, MovieService>();
+builder.Services.AddScoped<IMovieDirectorService, MovieDirectorService>();
+builder.Services.AddScoped<IMovieMusicService, MovieMusicService>();
 
 var app = builder.Build();
 
