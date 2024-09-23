@@ -20,10 +20,10 @@ namespace CinemaApi.Utilities
                     opt => opt.MapFrom(origen => 
                         origen.CountryNavigation.CountryName));
 
-            CreateMap<DirectorDTO, Director>()
-                .ForMember(destino =>
-                    destino.CountryNavigation.CountryName,
-                    opt => opt.Ignore());
+            //CreateMap<DirectorDTO, Director>()
+            //    .ForMember(destino =>
+            //        destino.CountryNavigation.CountryName,
+            //        opt => opt.Ignore());
             #endregion
 
             #region MovieDirector
@@ -38,13 +38,13 @@ namespace CinemaApi.Utilities
                         origen.DirectorNavigation.DirectorName)
                 );
 
-            CreateMap<MovieDirectorDTO, MovieDirector>()
-                .ForMember(destino =>
-                    destino.MovieNavigation.Title,
-                    opt => opt.Ignore())
-                .ForMember(destino =>
-                    destino.DirectorNavigation.DirectorName,
-                    opt => opt.Ignore());
+            //CreateMap<MovieDirectorDTO, MovieDirector>()
+            //    .ForMember(destino =>
+            //        destino.MovieNavigation.Title,
+            //        opt => opt.Ignore())
+            //    .ForMember(destino =>
+            //        destino.DirectorNavigation.DirectorName,
+            //        opt => opt.Ignore());
             #endregion
 
             #region Movie
@@ -62,13 +62,13 @@ namespace CinemaApi.Utilities
                     opt => opt.MapFrom(origen =>
                         origen.MusicNavigation.MusicName));
 
-            CreateMap<MovieMusicDTO, MovieMusic>()
-                .ForMember(destino =>
-                    destino.MovieNavigation.Title,
-                    opt => opt.Ignore())
-                .ForMember(destino =>
-                    destino.MusicNavigation.MusicName,
-                    opt => opt.Ignore());
+            //CreateMap<MovieMusicDTO, MovieMusic>()
+            //    .ForMember(destino =>
+            //        destino.MovieNavigation.Title,
+            //        opt => opt.Ignore())
+            //    .ForMember(destino =>
+            //        destino.MusicNavigation.MusicName,
+            //        opt => opt.Ignore());
             #endregion
 
             #region Music
@@ -78,10 +78,10 @@ namespace CinemaApi.Utilities
                     opt => opt.MapFrom(origen =>
                         origen.CountryNavigation.CountryName));
 
-            CreateMap<MusicDTO, Music>()
-                .ForMember(destino =>
-                    destino.CountryNavigation.CountryName,
-                    opt => opt.Ignore());
+            //CreateMap<MusicDTO, Music>()
+            //    .ForMember(destino =>
+            //        destino.CountryNavigation.CountryName,
+            //        opt => opt.Ignore());
             #endregion
         }
     }

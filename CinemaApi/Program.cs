@@ -37,29 +37,19 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-var summaries = new[]
+#region PETICIONES
+app.MapGet("/movie/list", async (IMovieService _movieService, IMapper _mapper) =>
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
-
+    var movieList = await _movieService.GetList();
+    var movieListDTO = _mapper.Map<List<MovieDTO>>(movieList);
+    if (movieListDTO.Count > 0)
+    {
+        return Results.Ok(movieListDTO);
+    }
+    else { 
+        return Results.NotFound("No se encontró ninguna película");
+    }
+});
+#endregion
 app.Run();
 
-internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
