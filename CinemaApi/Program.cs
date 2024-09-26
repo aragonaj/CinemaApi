@@ -28,6 +28,14 @@ builder.Services.AddScoped<IMovieMusicService, MovieMusicService>();
 
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
+builder.Services.AddCors(options => {
+    options.AddPolicy("newPolicy", app => {
+        app.AllowAnyOrigin()
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -253,5 +261,8 @@ app.MapDelete("/music/delete/{id}", async (int id, IMusicService _musicService) 
     }
 });
 #endregion
+
+app.UseCors("newPolicy");
+
 app.Run();
 
