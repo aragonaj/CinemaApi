@@ -12,29 +12,74 @@ namespace CinemaApi.Services.Clases
             _dbContext = dbContext;
         }
 
-        public Task<List<Country>> GetList()
+        public async Task<List<Country>> GetList()
         {
-            throw new NotImplementedException();
+            try
+            {
+                List<Country> list = new List<Country>();
+                list = await _dbContext.Countries.ToListAsync();
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task<Country> Get(int Country)
+        public async Task<Country> Get(int Country)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Country? found = new Country();
+                found = await _dbContext.Countries.Where(country => country.Id == Country).FirstOrDefaultAsync();
+                return found;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task<Country> Add(Country country)
+        public async Task<Country> Add(Country country)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _dbContext.Countries.Add(country);
+                await _dbContext.SaveChangesAsync();
+                return country;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task<bool> Update(Country country)
+        public async Task<bool> Update(Country country)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _dbContext.Countries.Update(country);
+                await _dbContext.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task<bool> Delete(Country country)
+        public async Task<bool> Delete(Country country)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _dbContext.Countries.Remove(country);
+                await _dbContext.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
