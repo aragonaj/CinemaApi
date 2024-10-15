@@ -2,8 +2,8 @@
 // ng generate interface nombreDeLaCarpeta/nombreDelArchivo
 
 export interface Movie {
-    Id:number,
-    Title:string,
-    MovieYear:number,
-    RunningTime:number
+    id:number,
+    title:string,
+    movieYear:number,
+    runningTime:number
 }

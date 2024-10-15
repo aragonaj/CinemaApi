@@ -24,10 +24,10 @@ export class DirectorService {
   }
 
   update(id:number, model:Director):Observable<Director>{
-    return this.http.put<Director>(`${this.apirUrl}update/{id}`,model);
+    return this.http.put<Director>(`${this.apirUrl}update/${id}`,model);
   }
 
   delete(id:number):Observable<void>{
-    return this.http.delete<void>(`${this.apirUrl}delete/{id}`);
+    return this.http.delete<void>(`${this.apirUrl}delete/${id}`);
   }
 }

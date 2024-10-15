@@ -1,7 +1,7 @@
 export interface MovieDirector {
-    Id:number,
-    Movie:number,
-    Title:string,
-    Director:number,
-    DirectorName:string
+    id:number,
+    movie:number,
+    title:string,
+    director:number,
+    directorName:string
 }

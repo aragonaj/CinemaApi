@@ -1,7 +1,7 @@
 export interface MovieMusic {
-    Id:number,
-    Movie:number,
-    Title:string,
-    Music:number,
-    MusicName:string
+    id:number,
+    movie:number,
+    title:string,
+    music:number,
+    musicName:string
 }

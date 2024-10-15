@@ -24,10 +24,10 @@ export class MovieMusicService {
   }
 
   update(id:number, model:MovieMusic):Observable<MovieMusic>{
-    return this.http.put<MovieMusic>(`${this.apirUrl}update/{id}`,model);
+    return this.http.put<MovieMusic>(`${this.apirUrl}update/${id}`,model);
   }
 
   delete(id:number):Observable<void>{
-    return this.http.delete<void>(`${this.apirUrl}delete/{id}`);
+    return this.http.delete<void>(`${this.apirUrl}delete/${id}`);
   }
 }

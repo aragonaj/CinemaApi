@@ -24,10 +24,10 @@ export class MovieDirectorService {
   }
 
   update(id:number, model:MovieDirector):Observable<MovieDirector>{
-    return this.http.put<MovieDirector>(`${this.apirUrl}update/{id}`,model);
+    return this.http.put<MovieDirector>(`${this.apirUrl}update/${id}`,model);
   }
 
   delete(id:number):Observable<void>{
-    return this.http.delete<void>(`${this.apirUrl}delete/{id}`);
+    return this.http.delete<void>(`${this.apirUrl}delete/${id}`);
   }
 }
