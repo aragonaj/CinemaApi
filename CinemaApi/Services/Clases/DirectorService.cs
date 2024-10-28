@@ -15,8 +15,12 @@ namespace CinemaApi.Services.Clases
         {
             try
             {
+                var countryList = _dbContext.Countries.ToList();
                 List<Director> list = new List<Director>();
-                list = await _dbContext.Directors.Include(country => country.CountryNavigation).ToListAsync();
+                
+                list = await _dbContext.Directors
+                    .Include(country => country.CountryNavigation)
+                    .ToListAsync();
                 return list;
             }
             catch (Exception ex)
@@ -30,7 +34,10 @@ namespace CinemaApi.Services.Clases
             try
             {
                 Director? found = new Director();
-                found = await _dbContext.Directors.Include(country => country.CountryNavigation).Where(director => director.Id == Director).FirstOrDefaultAsync();
+                found = await _dbContext.Directors
+                    .Include(country => country.CountryNavigation)
+                    .Where(director => director.Id == Director)
+                    .FirstOrDefaultAsync();
                 return found;
             }
             catch (Exception ex)

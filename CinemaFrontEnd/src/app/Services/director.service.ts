@@ -1,19 +1,24 @@
 import { Injectable } from '@angular/core';
 
-import {HttpClient} from '@angular/common/http';
-import {environment} from 'C:/Users/usuario/source/repos/CinemaApi/CinemaFrontEnd/src/environments/environment';
-import {Observable} from 'rxjs';
-import {Director} from '../Interfaces/director'
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+import { Observable } from 'rxjs';
+import { Director } from '../Interfaces/director'
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class DirectorService {
 
   private endpoint:string = environment.endPoint;
   private apirUrl:string = this.endpoint + "director/";
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) {}
+
+  getApiUrl() {
+    return this.apirUrl;
+  }
   
   getList():Observable<Director[]>{
     return this.http.get<Director[]>(`${this.apirUrl}list`);

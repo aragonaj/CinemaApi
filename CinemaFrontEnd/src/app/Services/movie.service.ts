@@ -9,6 +9,7 @@ import { Movie } from '../Interfaces/movie'
 @Injectable({
   providedIn: 'root'
 })
+
 export class MovieService {
 
   private endpoint:string = environment.endPoint;

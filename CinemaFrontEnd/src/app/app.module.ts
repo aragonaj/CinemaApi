@@ -33,9 +33,24 @@ import { MatGridListModule } from '@angular/material/grid-list';
 // npm install moment --save
 // npm install @angular/material-moment-adapter@14.2.7
 
+// trabajar con las tablas de la APIRest
+import { CountryComponent } from './APIRestUI/countries/countries.component';
+import { DirectorComponent } from './APIRestUI/directors/directors.component';
+import { MovieDirectorComponent } from './APIRestUI/movieDirectors/movieDirectors.component';
+import { MovieMusicComponent } from './APIRestUI/movieMusic/movieMusics.component';
+import { MovieComponent } from './APIRestUI/movies/movies.component';
+import { MusicComponent } from './APIRestUI/musics/musics.component';
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CountryComponent,
+    DirectorComponent,
+    MovieDirectorComponent,
+    MovieMusicComponent,
+    MovieComponent,
+    MusicComponent,
   ],
   imports: [
     BrowserModule,

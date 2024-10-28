@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from 'C:/Users/usuario/source/repos/CinemaApi/CinemaFrontEnd/src/environments/environment';
 import {Observable} from 'rxjs';
-import {MovieMusic} from '../Interfaces/movie-music'
+import {MovieMusic} from '../Interfaces/movieMusic'
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ import {MovieMusic} from '../Interfaces/movie-music'
 export class MovieMusicService {
 
   private endpoint:string = environment.endPoint;
-  private apirUrl:string = this.endpoint + "movie-music/";
+  private apirUrl:string = this.endpoint + "movieMusic/";
   
   constructor(private http:HttpClient) { }
   
