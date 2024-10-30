@@ -5,26 +5,25 @@ import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 
-import { Director } from '../../Interfaces/director';
-import { DirectorService } from '../../Services/director.service';
 import { Country } from '../../Interfaces/country';
 import { CountryService } from '../../Services/country.service';
 
+
 @Component({
-  selector: 'app-directors',
-  // standalone: true,
-  // imports: [RouterOutlet],
-  templateUrl: './directors.component.html',
-  styleUrl: './directors.component.css'
+  selector: 'app-country',
+  //standalone: true,
+  //imports: [RouterOutlet, MatPaginator, MatPaginatorModule, MatTableModule, MatFormField, MatLabel],
+  templateUrl: './country.component.html',
+  styleUrl: './country.component.css'
 })
 
-export class DirectorComponent implements AfterViewInit, OnInit {
-  displayedColumns: string[] = ['DirectorName', 'Born', 'CountryName', 'Actions'];
-  dataSource = new MatTableDataSource<Director>();
-  constructor (private _directorService: DirectorService){}
+export class CountryComponent implements AfterViewInit, OnInit {
+  displayedColumns: string[] = ['CountryName', 'Actions'];
+  dataSource = new MatTableDataSource<Country>();
+  constructor (private _countryService: CountryService){}
 
   ngOnInit(): void {
-    this.ListDirectors();
+    this.ListCountries();
   }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator; // para que no de error, se añade el signo de exclamación
@@ -38,10 +37,10 @@ export class DirectorComponent implements AfterViewInit, OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  ListDirectors(){
-    this._directorService.getList().subscribe({
+  ListCountries(){
+    this._countryService.getList().subscribe({
       next:(dataResponse) => {
-        console.log(dataResponse);
+        //console.log(dataResponse);
         this.dataSource.data = dataResponse;
       },error:(e) => {}
     })

@@ -10,19 +10,14 @@
   
       <table mat-table [dataSource]="dataSource">
   
+        <ng-container matColumnDef="Title">
+          <th mat-header-cell *matHeaderCellDef> Title </th>
+          <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+
         <ng-container matColumnDef="MusicName">
           <th mat-header-cell *matHeaderCellDef> Music </th>
           <td mat-cell *matCellDef="let element"> {{element.musicName}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="Born">
-          <th mat-header-cell *matHeaderCellDef> Born </th>
-          <td mat-cell *matCellDef="let element"> {{element.born}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="CountryName">
-          <th mat-header-cell *matHeaderCellDef> Country's Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.countryName}} </td>
         </ng-container>
   
         <ng-container matColumnDef="Actions">
@@ -41,4 +36,5 @@
                      aria-label="Select page">
       </mat-paginator>
     </div>
+    <a routerLink="/home">Back Home</a>
 </div>

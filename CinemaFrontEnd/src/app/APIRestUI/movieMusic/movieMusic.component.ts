@@ -4,16 +4,17 @@ import { RouterOutlet } from '@angular/router';
 import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
 
 import { MovieMusic } from '../../Interfaces/movieMusic';
 import { MovieMusicService } from '../../Services/movie-music.service';
 
 @Component({
-  selector: 'app-movieMusics',
-  // standalone: true,
-  // imports: [RouterOutlet],
-  templateUrl: './movieMusics.component.html',
-  styleUrl: './movieMusics.component.css'
+  selector: 'app-movieMusic',
+  //standalone: true,
+  //imports: [RouterOutlet, MatPaginator, MatPaginatorModule, MatTableModule, MatFormField, MatLabel],
+  templateUrl: './movieMusic.component.html',
+  styleUrl: './movieMusic.component.css'
 })
 
 export class MovieMusicComponent implements AfterViewInit, OnInit {
@@ -39,7 +40,7 @@ export class MovieMusicComponent implements AfterViewInit, OnInit {
   ListMovieMusics(){
     this._movieMusicService.getList().subscribe({
       next:(dataResponse) => {
-        console.log(dataResponse);
+        //console.log(dataResponse);
         this.dataSource.data = dataResponse;
       },error:(e) => {}
     })

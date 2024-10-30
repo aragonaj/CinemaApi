@@ -4,25 +4,26 @@ import { RouterOutlet } from '@angular/router';
 import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
 
-import { MovieDirector } from '../../Interfaces/movieDirector';
-import { MovieDirectorService } from '../../Services/movie-director.service';
+import { Music } from '../../Interfaces/music';
+import { MusicService } from '../../Services/music.service';
 
 @Component({
-  selector: 'app-movieDirectors',
-  // standalone: true,
-  // imports: [RouterOutlet],
-  templateUrl: './movieDirectors.component.html',
-  styleUrl: './movieDirectors.component.css'
+  selector: 'app-music',
+  //standalone: true,
+  //imports: [RouterOutlet, MatPaginator, MatPaginatorModule, MatTableModule, MatFormField, MatLabel],
+  templateUrl: './music.component.html',
+  styleUrl: './music.component.css'
 })
 
-export class MovieDirectorComponent implements AfterViewInit, OnInit {
-  displayedColumns: string[] = ['Title', 'DirectorName', 'Actions'];
-  dataSource = new MatTableDataSource<MovieDirector>();
-  constructor (private _movieDirectorService: MovieDirectorService){}
+export class MusicComponent implements AfterViewInit, OnInit {
+  displayedColumns: string[] = ['MusicName', 'Born', 'CountryName',  'Actions'];
+  dataSource = new MatTableDataSource<Music>();
+  constructor (private _musicService: MusicService){}
 
   ngOnInit(): void {
-    this.ListMovieDirectors();
+    this.ListMusics();
   }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator; // para que no de error, se añade el signo de exclamación
@@ -36,8 +37,8 @@ export class MovieDirectorComponent implements AfterViewInit, OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  ListMovieDirectors(){
-    this._movieDirectorService.getList().subscribe({
+  ListMusics(){
+    this._musicService.getList().subscribe({
       next:(dataResponse) => {
         console.log(dataResponse);
         this.dataSource.data = dataResponse;

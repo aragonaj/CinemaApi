@@ -1,7 +1,9 @@
 // imports base
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { bootstrapApplication, BrowserModule, platformBrowser } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { provideRouter, RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component'; // fue actualizado el archivo app.component.ts
 
 // trabajar con peticiones http
@@ -34,25 +36,28 @@ import { MatGridListModule } from '@angular/material/grid-list';
 // npm install @angular/material-moment-adapter@14.2.7
 
 // trabajar con las tablas de la APIRest
-import { CountryComponent } from './APIRestUI/countries/countries.component';
-import { DirectorComponent } from './APIRestUI/directors/directors.component';
-import { MovieDirectorComponent } from './APIRestUI/movieDirectors/movieDirectors.component';
-import { MovieMusicComponent } from './APIRestUI/movieMusic/movieMusics.component';
-import { MovieComponent } from './APIRestUI/movies/movies.component';
-import { MusicComponent } from './APIRestUI/musics/musics.component';
-
+ import { CountryComponent } from './APIRestUI/country/country.component';
+ import { DirectorComponent } from './APIRestUI/director/director.component';
+ import { MovieComponent } from './APIRestUI/movie/movie.component';
+ import { MovieDirectorComponent } from './APIRestUI/movieDirector/movieDirector.component';
+ import { MovieMusicComponent } from './APIRestUI/movieMusic/movieMusic.component';
+ import { MusicComponent } from './APIRestUI/music/music.component';
+// vista Home
+import { HomeComponent } from "./home/home.component";
 
 @NgModule({
   declarations: [
-    AppComponent,
     CountryComponent,
     DirectorComponent,
+    MovieComponent,
     MovieDirectorComponent,
     MovieMusicComponent,
-    MovieComponent,
     MusicComponent,
   ],
   imports: [
+    AppComponent,
+    RouterOutlet,
+    RouterModule,
     BrowserModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
@@ -66,9 +71,11 @@ import { MusicComponent } from './APIRestUI/musics/musics.component';
     MatButtonModule,
     MatSnackBarModule,
     MatDialogModule,
-    MatGridListModule
-  ],
-  providers: [provideHttpClient()],
-  bootstrap: [AppComponent]
+    MatGridListModule,
+    HomeComponent,
+],
+  //providers: [provideHttpClient()],
+  //bootstrap: [AppComponent]
 })
 export class AppModule {}
+bootstrapApplication(AppComponent, {providers: [provideHttpClient()]})

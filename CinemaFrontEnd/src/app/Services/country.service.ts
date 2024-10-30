@@ -20,11 +20,11 @@ export class CountryService {
   }
 
   add(model:Country):Observable<Country>{
-    return this.http.post<Country>(`${this.apirUrl}save`,model);
+    return this.http.post<Country>(`${this.apirUrl}save`, model);
   }
 
   update(id:number, model:Country):Observable<Country>{
-    return this.http.put<Country>(`${this.apirUrl}update/${id}`,model);
+    return this.http.put<Country>(`${this.apirUrl}update/${id}`, model);
   }
 
   delete(id:number):Observable<void>{

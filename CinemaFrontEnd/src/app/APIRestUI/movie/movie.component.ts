@@ -4,16 +4,17 @@ import { RouterOutlet } from '@angular/router';
 import {AfterViewInit, Component, ViewChild, OnInit} from '@angular/core';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
 
 import  { Movie } from '../../Interfaces/movie';
 import { MovieService } from '../../Services/movie.service';
 
 @Component({
-  selector: 'app-movies',
-  // standalone: true,
-  // imports: [RouterOutlet],
-  templateUrl: './movies.component.html',
-  styleUrl: './movies.component.css'
+  selector: 'app-movie',
+  //standalone: true,
+  //imports: [RouterOutlet, MatPaginator, MatPaginatorModule, MatTableModule, MatFormField, MatLabel],
+  templateUrl: './movie.component.html',
+  styleUrl: './movie.component.css'
 })
 
 export class MovieComponent implements AfterViewInit, OnInit {
@@ -41,7 +42,7 @@ export class MovieComponent implements AfterViewInit, OnInit {
   ListMovies(){
     this._movieService.getList().subscribe({
       next:(dataResponse) => {
-        console.log(dataResponse);
+        //console.log(dataResponse);
         this.dataSource.data = dataResponse;
       },error:(e) => {}
     })
