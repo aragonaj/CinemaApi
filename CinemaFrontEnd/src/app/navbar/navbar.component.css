@@ -36,7 +36,7 @@
 
 .navbar-toggler {
     border: none;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
 }
 
 .navbar-toggler:focus, .btn-close:focus {
@@ -62,14 +62,14 @@
         left: 50%;
         transform: translateX(-50%);
         width: 0;
-        height: 2px;
+        height: 3px;
         background-color: black;
         visibility: hidden;
-        transition: 0.3s ease-in-out;
+        transition: 0.35s ease-in-out;
     }
     
     .nav-link:hover::before, .nav-link.active::before {
-        width: 100%;
+        width: 85%;
         visibility: visible;
     }
 }
