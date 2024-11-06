@@ -7,6 +7,11 @@ using CinemaApi.Services.Clases;
 using AutoMapper;
 using CinemaApi.DTOs;
 using CinemaApi.Utilities;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Net.Http;
+using CinemaApi.Custom;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +37,31 @@ builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 builder.Services.AddCors(options => options.AddPolicy(name: "newPolicy", policy => {
     policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
 }));
+
+builder.Services.AddSingleton<JwtUtilities>();
+
+// Configure JWT authentication
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.RequireHttpsMetadata = false;
+    options.SaveToken = true;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        
+        ValidateAudience = false,
+        ValidateIssuer = false,
+        ValidateIssuerSigningKey = true,
+        ValidateLifetime = true,
+        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(builder.Configuration["JwtSettings:key"]!))
+    };
+});
+
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
@@ -457,7 +487,10 @@ app.MapDelete("/movieMusic/delete/{id}", async (int id, IMovieMusicService _movi
 });
 #endregion
 
+app.UseAuthentication();
+
+app.UseAuthorization();
+
 app.UseCors("newPolicy");
 
 app.Run();
-

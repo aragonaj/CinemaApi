@@ -54,6 +54,25 @@
     color: #023047;
 }
 
+.offcanvas {
+    background-color: #217e95;
+}
+
+.offcanvas-title {
+    font-size: 24px;
+    font-weight: 500;
+    color: #8ECAE6;
+}
+
+.offcanvas-body > a {
+    color: #8ECAE6;
+    transition: 1s color;
+}
+
+.offcanvas-body > a:hover {
+    color: #023047;
+}
+
 @media (min-width: 991px){
     .nav-link::before {
         content: "";

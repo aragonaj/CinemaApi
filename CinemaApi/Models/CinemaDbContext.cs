@@ -27,6 +27,7 @@ public partial class CinemaDbContext : DbContext
 
     public virtual DbSet<Music> Musics { get; set; }
 
+    public virtual DbSet<ApiUser> Users { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -125,6 +126,24 @@ public partial class CinemaDbContext : DbContext
             entity.HasOne(d => d.CountryNavigation).WithMany(p => p.Musics)
                 .HasForeignKey(d => d.Country)
                 .HasConstraintName("FK__Music__Country__628FA481");
+        });
+
+        modelBuilder.Entity<ApiUser>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__ApìUser__389F25F609");
+
+            entity.ToTable("ApiUser");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.UserName)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.UserEmail)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Password)
+                .HasMaxLength(100)
+                .IsUnicode(false);
         });
 
         OnModelCreatingPartial(modelBuilder);
