@@ -30,8 +30,15 @@ namespace CinemaApi.Controllers
             _utilities = utilities;
         }
 
+        [HttpGet("List")]
+        public async Task<IActionResult> GetUsers()
+        {
+            var users = await _cinemaDbContext.Users.ToListAsync();
+            return Ok(users);
+        }
+
         [HttpPost]
-        [HttpPost("register")]
+        [Route("Register")]
         public async Task<IActionResult> Register(ApiUserDTO userDto)
         {
             var user = new ApiUser
@@ -46,17 +53,18 @@ namespace CinemaApi.Controllers
 
             if (user.Id != 0)
             {
-                return BadRequest("User not found");
+                return StatusCode(StatusCodes.Status200OK, new { isSuccess = true });
             }
             else return StatusCode(StatusCodes.Status200OK, new { isSuccess = false });
         }
 
-        [HttpPost("login")]
-        public async Task<IActionResult> Login (LoginDTO loginDto)
+        [HttpPost]
+        [Route("login")]
+        public async Task<IActionResult> Login(LoginDTO loginDto)
         {
             var userFound = await _cinemaDbContext.Users.Where(u => 
-            u.UserEmail == loginDto.Email && 
-            u.Password == _utilities.coding(loginDto.Password)).FirstOrDefaultAsync();
+                u.UserEmail == loginDto.Email && 
+                u.Password == _utilities.coding(loginDto.Password)).FirstOrDefaultAsync();
 
             if (userFound == null)
             {

@@ -15,8 +15,13 @@ using CinemaApi.Custom;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//builder.Logging.ClearProviders(); 
+//builder.Logging.AddConsole(); 
+//builder.Logging.AddDebug();
+
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -31,6 +36,7 @@ builder.Services.AddScoped<IDirectorService, DirectorService>();
 builder.Services.AddScoped<IMovieService, MovieService>();
 builder.Services.AddScoped<IMovieDirectorService, MovieDirectorService>();
 builder.Services.AddScoped<IMovieMusicService, MovieMusicService>();
+builder.Services.AddScoped<IApiUserService, ApiUserService>();
 
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
@@ -41,7 +47,6 @@ builder.Services.AddCors(options => options.AddPolicy(name: "newPolicy", policy 
 builder.Services.AddSingleton<JwtUtilities>();
 
 // Configure JWT authentication
-
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -73,6 +78,22 @@ if (app.Environment.IsDevelopment())
 }
 
 #region PETICIONES
+// Mostrar lista de usuarios
+app.MapGet("/apiUser/list", async (IApiUserService _apiUserService, IMapper _mapper) =>
+{
+    var userList = await _apiUserService.GetUsers();
+    var userListDTO = _mapper.Map<List<ApiUserDTO>>(userList);
+
+    if (userListDTO.Count > 0)
+    {
+        return Results.Ok(userListDTO);
+    }
+    else
+    {
+        return Results.NotFound("No se encontró ningú usuario/a");
+    }
+});
+
 // Mostrar listas de: países, películas, directores y compositores
 app.MapGet("/country/list", async (ICountryService _countryService, IMapper _mapper) =>
 {
@@ -492,5 +513,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseCors("newPolicy");
+
+app.MapControllers();
 
 app.Run();
