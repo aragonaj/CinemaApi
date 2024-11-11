@@ -54,7 +54,7 @@ namespace CinemaApi.Services.Clases
         public async Task<IActionResult> Login(LoginDTO loginDto)
         {
             var userFound = await _cinemaDbContext.Users.Where(u =>
-            u.UserEmail == loginDto.Email &&
+            u.UserEmail == loginDto.UserEmail &&
             u.Password == _utilities.coding(loginDto.Password)).FirstOrDefaultAsync();
 
             if (userFound == null)

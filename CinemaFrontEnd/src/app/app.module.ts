@@ -43,7 +43,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
  import { MovieMusicComponent } from './APIRestUI/movieMusic/movieMusic.component';
  import { MusicComponent } from './APIRestUI/music/music.component';
 // vista Home
-import { HomeComponent } from "./home/home.component";
+import { HomeComponent } from './Pages/home/home.component';
 
 @NgModule({
   declarations: [
