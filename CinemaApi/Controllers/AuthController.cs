@@ -72,5 +72,13 @@ namespace CinemaApi.Controllers
             }
             else return StatusCode(StatusCodes.Status200OK, new { isSuccess = true, token = _utilities.generate(userFound) });
         }
+
+        [HttpGet]
+        [Route("validate")]
+        public IActionResult validate([FromQuery]string token)
+        {
+            bool response = _utilities.validate(token);
+             return StatusCode(StatusCodes.Status200OK, new { isSuccess = response });
+        }
     }
 }

@@ -6,8 +6,8 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 
-import { Director } from '../../Interfaces/director';
-import { DirectorService } from '../../Services/director.service';
+import { Director } from '../../interfaces/director';
+import { DirectorService } from '../../services/director.service';
 
 
 @Component({

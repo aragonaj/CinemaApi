@@ -5,8 +5,8 @@ import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 
-import { Country } from '../../Interfaces/country';
-import { CountryService } from '../../Services/country.service';
+import { Country } from '../../interfaces/country';
+import { CountryService } from '../../services/country.service';
 
 
 @Component({

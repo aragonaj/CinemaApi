@@ -6,8 +6,8 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 
-import { MovieMusic } from '../../Interfaces/movieMusic';
-import { MovieMusicService } from '../../Services/movie-music.service';
+import { MovieMusic } from '../../interfaces/movieMusic';
+import { MovieMusicService } from '../../services/movie-music.service';
 
 @Component({
   selector: 'app-movieMusic',

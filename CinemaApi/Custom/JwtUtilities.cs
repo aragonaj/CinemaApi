@@ -51,5 +51,34 @@ namespace CinemaApi.Custom
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }// public string generate.end
+
+        public bool validate(string token)
+        {
+            var claimsPrincipal = new ClaimsPrincipal();
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var validationParameters = new TokenValidationParameters 
+            {
+                ValidateAudience = false,
+                ValidateIssuer = false,
+                ValidateIssuerSigningKey = true,
+                ValidateLifetime = true,
+                IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_configuration["JwtSettings:key"]!))
+            };
+
+            try
+            {
+                claimsPrincipal = tokenHandler.ValidateToken(token, validationParameters, out SecurityToken validatedToken);
+                return true;
+            } catch (SecurityTokenExpiredException)
+            {
+                return false;
+            } catch (SecurityTokenInvalidSignatureException)
+            {
+                return false;
+            } catch (Exception ex)
+            {
+                return false;
+            }
+        }// validate.end
     }// public class.end
 }// namespace.end

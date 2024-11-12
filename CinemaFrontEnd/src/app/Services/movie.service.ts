@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 // import { environment } from 'C:/Users/usuario/source/repos/CinemaApi/CinemaFrontEnd/src/environments/environment';
 import { environment } from 'C:/Users/usuario/source/repos/CinemaApi/CinemaFrontEnd/src/environments/environment';
 import { Observable } from 'rxjs';
-import { Movie } from '../Interfaces/movie'
+import { Movie } from '../interfaces/movie'
 
 @Injectable({
   providedIn: 'root'

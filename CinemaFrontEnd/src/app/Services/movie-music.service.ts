@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from 'C:/Users/usuario/source/repos/CinemaApi/CinemaFrontEnd/src/environments/environment';
 import {Observable} from 'rxjs';
-import {MovieMusic} from '../Interfaces/movieMusic'
+import {MovieMusic} from '../interfaces/movieMusic'
 
 @Injectable({
   providedIn: 'root'

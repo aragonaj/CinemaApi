@@ -6,8 +6,8 @@ import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 
-import  { Movie } from '../../Interfaces/movie';
-import { MovieService } from '../../Services/movie.service';
+import  { Movie } from '../../interfaces/movie';
+import { MovieService } from '../../services/movie.service';
 
 @Component({
   selector: 'app-movie',
