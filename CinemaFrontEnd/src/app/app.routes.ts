@@ -1,6 +1,7 @@
 import { RouterOutlet, Routes } from '@angular/router';
 import { authGuard } from './custom/auth.guard';
 // views
+import { ApiHubComponent } from './views/apiHub/apiHub.component';
 import { LoginComponent } from './views/login/login.component';
 import { HomeComponent } from './views/home/home.component';
 import { RegisterComponent } from './views/register/register.component';
@@ -12,11 +13,10 @@ import { MovieMusicComponent } from './APIRestUI/movieMusic/movieMusic.component
 import { MovieComponent } from './APIRestUI/movie/movie.component';
 import { MusicComponent } from './APIRestUI/music/music.component';
 
-
-
 export const routes: Routes = [
-    { path: '', component: LoginComponent },
-    { path: 'home', component: HomeComponent, canActivate: [authGuard] },
+    { path: '', component: HomeComponent },
+    { path: 'home', component: HomeComponent },
+    { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'country', component: CountryComponent },
     { path: 'director', component: DirectorComponent },
@@ -24,4 +24,5 @@ export const routes: Routes = [
     { path: 'movieMusic', component: MovieMusicComponent },
     { path: 'movie', component: MovieComponent },
     { path: 'music', component: MusicComponent },
+    { path: 'apiHub', component: ApiHubComponent, canActivate: [authGuard] },
 ];

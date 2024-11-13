@@ -44,6 +44,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
  import { MusicComponent } from './APIRestUI/music/music.component';
 // vista Home
 import { HomeComponent } from './Pages/home/home.component';
+// vista ApiHub
+import { ApiHubComponent } from './views/apiHub/apiHub.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +75,7 @@ import { HomeComponent } from './Pages/home/home.component';
     MatDialogModule,
     MatGridListModule,
     HomeComponent,
+    ApiHubComponent,
 ],
   //providers: [provideHttpClient()],
   //bootstrap: [AppComponent]

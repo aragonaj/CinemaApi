@@ -38,7 +38,7 @@ export class LoginComponent {
       next:(data) => {
         if (data.isSuccess){
           localStorage.setItem("token",data.token);
-          this.router.navigate(['home']);
+          this.router.navigate(['apiHub']);
         }
         else {
           alert("Wrong credentials")
