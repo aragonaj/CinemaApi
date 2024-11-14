@@ -1,5 +1,5 @@
 .navbar {
-    background-color: #8ECAE6;
+    background-color: #FB8500;
     height: 80px;
     margin: 20px;
     border-radius: 16px;
@@ -8,35 +8,22 @@
 
 .navbar-brand {
     font-weight: 500;
-    color: #217e95;
+    color: #023047;
     font-size: 24px;
     transition: 1s color;
 }
 
 .navbar-brand:hover {
-    color: #023047;
-}
-
-.button {
-    margin: 0.20rem;
-    padding: 0.35rem 0.75rem;
-    border-style: none;
-    border-radius: 0.5rem;
-    font-size: 16px;
-    text-decoration: none;
-    background-color: #217e95;
-    color: #8ECAE6;
-    transition: 0.75s ease-in-out background-color, 0.75s ease-in-out color;
-}
-
-.button:hover {
-    background-color: #8ECAE6;
-    color: #023047;
+    color: #F1F3F4;
 }
 
 .navbar-toggler {
     border: none;
     font-size: 1.2rem;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(2, 48, 71, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 .navbar-toggler:focus, .btn-close:focus {
@@ -45,33 +32,39 @@
 }
 
 .nav-link {
-    color: #217e95;
+    color: #023047;
     font-weight: 500;
     position: relative;
 }
 
 .nav-link:hover, .nav-link.active {
-    color: #023047;
+    color: #F1F3F4;
 }
 
 .offcanvas {
-    background-color: #217e95;
+    background-color: #8ECAE6;
 }
 
 .offcanvas-title {
-    font-size: 24px;
+    position: absolute;
+    top: 2rem;
+    font-size: 22px;
     font-weight: 500;
-    color: #8ECAE6;
-}
-
-.offcanvas-body > a {
-    color: #8ECAE6;
-    transition: 1s color;
-}
-
-.offcanvas-body > a:hover {
     color: #023047;
 }
+
+.offcanvas-body {
+    margin: 1rem 0;
+}
+
+button.btn-close {
+    opacity: 0.65;
+    transition: opacity 0.3s;
+}
+
+button.btn-close:hover {
+    opacity: 1;
+} 
 
 @media (min-width: 991px){
     .nav-link::before {
@@ -82,7 +75,7 @@
         transform: translateX(-50%);
         width: 0;
         height: 3px;
-        background-color: black;
+        background-color: #F1F3F4;
         visibility: hidden;
         transition: 0.35s ease-in-out;
     }
