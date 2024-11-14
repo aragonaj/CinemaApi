@@ -1,11 +1,14 @@
-<nav class="navbar navbar-expand-lg fixed-top">
+<nav class="navbar navbar-expand-xl fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand me-auto" routerLink="/home">Kerplunk Cinema</a>
+
         <div class="offcanvas offcanvas-start w-50" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Kerplunk Cinema</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
+
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
                     <li class="nav-item">
@@ -21,8 +24,10 @@
                         <a class="nav-link mx-lg-2" aria-current="page" href="contact">Contact</a>
                     </li>
                 </ul>
-                <button class="button"><a routerLink="/login" class="button-link">LogIn</a></button>
-                <button class="button"><a routerLink="/register" class="button-link">Register</a></button>
+                <div class="container-button">
+                    <button class="button"><a routerLink="/login" class="button-link">LogIn</a></button>
+                    <button class="button"><a routerLink="/register" class="button-link">Register</a></button>
+                </div>
             </div>
         </div>
         

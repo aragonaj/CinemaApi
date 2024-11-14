@@ -46,6 +46,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { HomeComponent } from './Pages/home/home.component';
 // vista ApiHub
 import { ApiHubComponent } from './views/apiHub/apiHub.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { ApiHubComponent } from './views/apiHub/apiHub.component';
     RouterModule,
     BrowserModule,
     BrowserAnimationsModule,
+    DashboardComponent,
     ReactiveFormsModule,
     MatTableModule,
     MatPaginatorModule,

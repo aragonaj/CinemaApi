@@ -1,8 +1,21 @@
+/* Botón de cerrar del offcanvas */
+
+button.btn-close {
+    opacity: 0.65;
+    transition: opacity 0.3s;
+}
+
+button.btn-close:hover {
+    opacity: 1;
+}
+
+/* Navbar */
+
 .navbar {
     background-color: #FB8500;
     height: 80px;
-    margin: 20px;
-    border-radius: 16px;
+    margin: 0.5rem;
+    border-radius: 10px;
     padding: 0.5rem;
 }
 
@@ -41,13 +54,45 @@
     color: #F1F3F4;
 }
 
+/* Botones del navbar */
+
+.container-button {
+    position: relative;
+    align-items: center;
+}
+
+.button {
+    height: 2.45rem;
+    width: 5rem;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    margin-inline: 0.25rem;
+    background-color: #023047;
+    color: #8ECAE6;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.button:hover {
+    background-color: #FB8500;
+    color: #023047;
+}
+
+.button-link {
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 500;
+    color: inherit;
+}
+
+/* offcanvas */
+
 .offcanvas {
     background-color: #8ECAE6;
 }
 
 .offcanvas-title {
-    position: absolute;
-    top: 2rem;
     font-size: 22px;
     font-weight: 500;
     color: #023047;
@@ -57,16 +102,9 @@
     margin: 1rem 0;
 }
 
-button.btn-close {
-    opacity: 0.65;
-    transition: opacity 0.3s;
-}
 
-button.btn-close:hover {
-    opacity: 1;
-} 
 
-@media (min-width: 991px){
+@media (min-width: 1200px){
     .nav-link::before {
         content: "";
         position: absolute;
