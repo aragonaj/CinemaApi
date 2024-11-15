@@ -23,6 +23,9 @@
                     <li class="nav-item">
                         <a class="nav-link mx-lg-2" aria-current="page" href="contact">Contact</a>
                     </li>
+                    <li *ngIf="login()">
+                        <a class="nav-link mx-lg-2" aria-current="page" routerLink="/apiHub">API Hub</a>
+                    </li>
                 </ul>
                 <div class="container-button">
                     <button *ngIf="!login()" class="button"><a  routerLink="/login" class="button-link">LogIn</a></button>

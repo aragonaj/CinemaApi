@@ -43,10 +43,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
  import { MovieMusicComponent } from './APIRestUI/movieMusic/movieMusic.component';
  import { MusicComponent } from './APIRestUI/music/music.component';
 // vista Home
-import { HomeComponent } from './Pages/home/home.component';
+import { HomeComponent } from './views/home/home.component';
 // vista ApiHub
 import { ApiHubComponent } from './views/apiHub/apiHub.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +62,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     RouterModule,
     BrowserModule,
     BrowserAnimationsModule,
-    DashboardComponent,
     ReactiveFormsModule,
     MatTableModule,
     MatPaginatorModule,

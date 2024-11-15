@@ -1,2 +1,3 @@
-<app-dashboard></app-dashboard>
-
+<app-sidebar [isCollapsed]="isCollapsed()" (changeCollapsedState)="changeCollapsedState($event)"></app-sidebar>
+<app-main [isCollapsed]="isCollapsed()" [screenWidth]="screenWidth()"></app-main>
+<router-outlet></router-outlet>

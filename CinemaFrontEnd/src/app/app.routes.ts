@@ -15,14 +15,16 @@ import { MusicComponent } from './APIRestUI/music/music.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'home', component: HomeComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'country', component: CountryComponent },
-    { path: 'director', component: DirectorComponent },
-    { path: 'movieDirector', component: MovieDirectorComponent },
-    { path: 'movieMusic', component: MovieMusicComponent },
-    { path: 'movie', component: MovieComponent },
-    { path: 'music', component: MusicComponent },
-    { path: 'apiHub', component: ApiHubComponent, canActivate: [authGuard] },
+    { path: 'apiHub', component: ApiHubComponent, canActivate: [authGuard], children: [
+        { path: 'home', component: HomeComponent },
+        { path: 'country', component: CountryComponent },
+        { path: 'director', component: DirectorComponent },
+        { path: 'movieDirector', component: MovieDirectorComponent },
+        { path: 'movieMusic', component: MovieMusicComponent },
+        { path: 'movie', component: MovieComponent },
+        { path: 'music', component: MusicComponent },
+    ] },
+    // { path: '**', component: error404 }
 ];

@@ -15,7 +15,7 @@ button.btn-close:hover {
     background-color: #FB8500;
     height: 80px;
     margin: 0.5rem;
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 0.5rem;
 }
 
@@ -66,7 +66,7 @@ button.btn-close:hover {
     width: 5rem;
     text-align: center;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     margin-inline: 0.25rem;
     background-color: #023047;
     color: #8ECAE6;
@@ -75,7 +75,7 @@ button.btn-close:hover {
 }
 
 .button:hover {
-    background-color: #FB8500;
+    background-color: #e48110;
     color: #023047;
 }
 

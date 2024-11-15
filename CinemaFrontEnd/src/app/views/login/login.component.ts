@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { AccessService } from '../../services/access.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Login } from '../../interfaces/login';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 
 import { MatCardModule } from '@angular/material/card'; 
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -12,7 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, ReactiveFormsModule],
+  imports: [MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, ReactiveFormsModule, RouterOutlet],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
