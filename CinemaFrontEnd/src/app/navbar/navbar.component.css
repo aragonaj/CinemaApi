@@ -71,7 +71,7 @@ button.btn-close:hover {
     background-color: #023047;
     color: #8ECAE6;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    transition: background-color 0.75s ease-in-out, color 0.75s ease-in-out;
 }
 
 .button:hover {
@@ -101,8 +101,6 @@ button.btn-close:hover {
 .offcanvas-body {
     margin: 1rem 0;
 }
-
-
 
 @media (min-width: 1200px){
     .nav-link::before {
