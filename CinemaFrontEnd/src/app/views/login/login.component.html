@@ -1,21 +1,21 @@
 <div class="card-container">
     <mat-card appearance="outlined">
-        <mat-card-header>
-            <mat-card-title>Sign In</mat-card-title>
+        <mat-card-header class="custom-card-header">
+            <mat-card-title class="custom-card-title">Sign In</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <form class="form-custom" [formGroup]="formLogin">
-                <mat-form-field class="input-custom">
+            <form class="custom-form" [formGroup]="formLogin">
+                <mat-form-field class="custom-input">
                     <mat-label>Email</mat-label>
                     <input matInput formControlName="userEmail">
                 </mat-form-field>
-                <mat-form-field class="input-custom">
+                <mat-form-field class="custom-input">
                     <mat-label>Password</mat-label>
                     <input matInput formControlName="password" type="password">
                 </mat-form-field>
-                <div class="flex">
-                    <button mat-flat-button (click)="signIn()">Sign In</button>
-                    <button mat-flat-button (click)="register()">Register</button>
+                <div class="container-button">
+                    <button class="button button-link" (click)="signIn()">Sign In</button>
+                    <button class="button button-link" (click)="register()">Register</button>
                 </div>
             </form>
         </mat-card-content>
