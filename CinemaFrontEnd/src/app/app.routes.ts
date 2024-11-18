@@ -12,6 +12,7 @@ import { MovieDirectorComponent } from './APIRestUI/movieDirector/movieDirector.
 import { MovieMusicComponent } from './APIRestUI/movieMusic/movieMusic.component';
 import { MovieComponent } from './APIRestUI/movie/movie.component';
 import { MusicComponent } from './APIRestUI/music/music.component';
+import { PageNotFoundComponent } from './views/pageNotFound/pageNotFound.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -31,5 +32,5 @@ export const routes: Routes = [
         { path: 'movie', component: MovieComponent },
         { path: 'music', component: MusicComponent },
     ] },
-    // { path: '**', component: error404 }
+    { path: '**', component: PageNotFoundComponent }
 ];
