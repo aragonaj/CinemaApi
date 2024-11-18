@@ -15,8 +15,13 @@ import { MusicComponent } from './APIRestUI/music/music.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent },
+    { path: 'home', component: HomeComponent },
+    { path: 'login', component: LoginComponent, children: [
+        { path: 'home', component: HomeComponent } 
+     ] },
+    { path: 'register', component: RegisterComponent, children: [
+       { path: 'home', component: HomeComponent } 
+    ] },
     { path: 'apiHub', component: ApiHubComponent, canActivate: [authGuard], children: [
         { path: 'home', component: HomeComponent },
         { path: 'country', component: CountryComponent },

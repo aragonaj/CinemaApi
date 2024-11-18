@@ -12,7 +12,13 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, ReactiveFormsModule, RouterOutlet],
+  imports: [
+    MatCardModule, 
+    MatFormFieldModule, 
+    MatInputModule, 
+    MatButtonModule, 
+    ReactiveFormsModule,
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -50,7 +56,11 @@ export class LoginComponent {
     })// this.accessService.login(objeto).subscribe.end
   }// signIn.end
 
-  register(){
-    this.router.navigate(['register']);
+  // register(){
+  //   this.router.navigate(['register']);
+  // }
+
+  back(){
+    this.router.navigate(['home'])
   }
 }// LoginComponent.end

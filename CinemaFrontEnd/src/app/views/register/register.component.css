@@ -5,11 +5,50 @@
     margin-top: 100px;
 }
 
-.form-custom {
-    min-width: 150px;
+.custom-form {
+    min-width: 9.375rem; /* 150px */
     width: 100%;
 }
 
-.input-custom {
+.custom-input {
     width: 100%;
+}
+
+.custom-card-header {
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem auto 1rem auto;
+}
+
+/* botones de login y register */
+
+.container-button {
+    display: flex;
+    justify-content: center;
+    margin: 1rem auto 0.5rem auto;
+}
+
+.button {
+    height: 2.45rem;
+    width: 7rem;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    margin-inline: 0.25rem;
+    background-color: #023047;
+    color: #8ECAE6 !important;
+    cursor: pointer;
+    transition: background-color 0.75s ease-in-out, color 0.75s ease-in-out;
+}
+
+.button:hover {
+    background-color: #f1f3f4;
+    color: #023047 !important;
+}
+
+.button-link {
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 500;
+    color: inherit;
 }
