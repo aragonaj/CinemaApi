@@ -1,5 +1,4 @@
 <div style="width: 70%; margin: 10rem auto;">
-
     <!-- Contenedor-tabla -->
     <div class="mat-elevation-z8">
       <!-- Filtro -->
@@ -18,7 +17,8 @@
         <ng-container matColumnDef="Actions">
           <th mat-header-cell *matHeaderCellDef> </th>
           <td mat-cell *matCellDef="let element"> 
-            <button mat-icon-button color="primary">Ejemplo</button> 
+            <button class="button button-action button-edit"><i class="fa-solid fa-pen-to-square">Edit</i></button> 
+            <button class="button button-action button-delete"><i class="fa-solid fa-trash-can">Delete</i></button>
         </td>
         </ng-container>
     
@@ -31,6 +31,6 @@
                      aria-label="Select page">
       </mat-paginator>
     </div>
-    <a routerLink="/home">Back Home</a>
+    <i class="fa-solid fa-rotate-left"><a routerLink="/home">Back Home</a></i>
   </div>
   

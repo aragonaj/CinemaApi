@@ -1,43 +1,23 @@
-<nav class="navbar navbar-expand-xl fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand me-auto" routerLink="/home">Kerplunk Cinema</a>
+<!-- contenido -->
+<!-- billbpard, special Offers, about Us, contact, apiHub -->
 
-        <div class="offcanvas offcanvas-start w-50" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Kerplunk Cinema</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-
-            <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-                    <li class="nav-item">
-                        <a class="nav-link mx-lg-2" aria-current="page" href="billboard">Billboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link mx-lg-2" aria-current="page" href="specialOffers">Special Offers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link mx-lg-2" aria-current="page" href="aboutUs">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link mx-lg-2" aria-current="page" href="contact">Contact</a>
-                    </li>
-                    <li *ngIf="login()">
-                        <a class="nav-link mx-lg-2" aria-current="page" routerLink="/apiHub">API Hub</a>
-                    </li>
-                </ul>
-                <div class="container-button">
-                    <button *ngIf="!login()" class="button"><a  routerLink="/login" class="button-link">LogIn</a></button>
-                    <button *ngIf="!login()" class="button"><a routerLink="/register" class="button-link">Register</a></button>
-                    <button *ngIf="login()" class="button"><a (click)="logout()" class="button-link">LogOut</a></button>
-                </div>
-            </div>
+<div class="navbar-container">
+    <a class="link link-logo">Kerplunk Cinema</a>
+    <nav class="custom-nav">
+        <div class="link-container">
+            <a class="link link-nav" href="#billboard">Billboard</a>
+            <a class="link link-nav" href="#specialOffers">Special Offers</a>
+            <a class="link link-nav" href="#aboutUs">About Us</a>
+            <a class="link link-nav" href="#contact">Contact</a>
+            <a class="link link-nav" routerLink="/apiHub" *ngIf="login()">APIHub</a>
         </div>
-        
-        <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    </nav>
+    <div class="container-button">
+        <button *ngIf="!login()" class="button button-login"><a routerLink="/login" 
+            class="link link-button">LogIn</a></button>
+        <button *ngIf="!login()" class="button button-register"><a routerLink="/register"
+            class="link link-button">Register</a></button>
+        <button *ngIf="login()" class="button button-logout"><a (click)="logout()" 
+            class="link link-button">LogOut</a></button>
     </div>
-</nav>
+</div>
