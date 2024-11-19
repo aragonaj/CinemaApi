@@ -6,11 +6,12 @@ import { provideRouter, RouterOutlet } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component'; // fue actualizado el archivo app.component.ts
 
+
 // trabajar con peticiones http
 import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 
 // trabajar con tablas
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
@@ -74,6 +75,7 @@ import { ApiHubComponent } from './views/apiHub/apiHub.component';
     MatSnackBarModule,
     MatDialogModule,
     MatGridListModule,
+    FormsModule,
     HomeComponent,
     ApiHubComponent,
 ],
