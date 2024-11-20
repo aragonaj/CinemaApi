@@ -1,6 +1,6 @@
 <div style="width: 70%; margin: 10rem auto;">
   <h5>Country's list</h5>
-  <button class="button button-action button-create" (click)="openDialog()"><i class="fa-regular fa-square-plus">New</i></button>
+  <button class="button button-action button-create" (click)="openDialogCreate()"><i class="fa-regular fa-square-plus">New</i></button>
 
   <!-- Contenedor-tabla -->
   <div class="mat-elevation-z8">
@@ -20,7 +20,7 @@
       <ng-container matColumnDef="Actions">
         <th mat-header-cell *matHeaderCellDef> </th>
         <td mat-cell *matCellDef="let element">
-          <button class="button button-action button-edit">
+          <button class="button button-action button-edit" (click)="openDialogEdit(element)">
             <i class="fa-solid fa-pen-to-square"></i>
           </button>
           <button class="button button-action button-delete">

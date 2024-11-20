@@ -36,16 +36,29 @@ export class CountryComponent implements AfterViewInit, OnInit {
     this.ListCountries();
   }
 
-  openDialog(){
+  openDialogCreate(){
     this.dialog.open(CreateEditComponent, {
       disableClose: true,
-      width: "10rem"
+      width: "20rem",
     }).afterClosed().subscribe(result => {
-      if (result === "OK"){
+      if (result === "Create"){
         this.ListCountries();
       }
     });
   }
+
+  openDialogEdit(dataResponse: Country){
+    this.dialog.open(CreateEditComponent, {
+      disableClose: true,
+      width: "20rem",
+      data: dataResponse,
+    }).afterClosed().subscribe(result => {
+      if (result === "Edit"){
+        this.ListCountries();
+      }
+    });
+  }
+
 
   edit(){
 
