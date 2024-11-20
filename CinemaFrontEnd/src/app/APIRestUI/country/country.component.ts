@@ -12,8 +12,10 @@ import {
   MatDialogContent,
   MatDialogTitle,
 } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { CreateEditComponent } from '../../dialog/create-edit/create-edit.component';
+import { DeleteComponent } from '../../dialog/delete/delete.component';
 
 import { Country } from '../../interfaces/country';
 import { CountryService } from '../../services/country.service';
@@ -30,7 +32,11 @@ import { CountryService } from '../../services/country.service';
 export class CountryComponent implements AfterViewInit, OnInit {
   displayedColumns: string[] = ['CountryName', 'Actions'];
   dataSource = new MatTableDataSource<Country>();
-  constructor (private _countryService: CountryService, public dialog: MatDialog){}
+  constructor (
+    private _countryService: CountryService, 
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar,
+  ){}
 
   ngOnInit(): void {
     this.ListCountries();
@@ -59,14 +65,29 @@ export class CountryComponent implements AfterViewInit, OnInit {
     });
   }
 
-
-  edit(){
-
+  openDialogDelete(dataResponse: Country){
+    this.dialog.open(DeleteComponent, {
+      disableClose: true,
+      data: dataResponse,
+    }).afterClosed().subscribe(result => {
+      if (result === "Delete"){
+        this._countryService.delete(dataResponse.id).subscribe({
+          next:(data) => {
+            this.showAlert("Register deleted", "OK");
+            this.ListCountries();
+          }, error:(e) => {}
+        });
+      }
+    });
   }
 
-  delete(){
-    
-  }
+  showAlert(message:string, action:string){
+    this._snackBar.open(message, action,{
+      horizontalPosition: "end",
+      verticalPosition: "bottom",
+      duration: 60000
+    });
+  }// showAlert.end
 
   @ViewChild(MatPaginator) paginator!: MatPaginator; // para que no de error, se añade el signo de exclamación
 
