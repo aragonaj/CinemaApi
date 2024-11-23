@@ -5,6 +5,17 @@ import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
+import {
+  MatDialog,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogTitle,
+} from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { CreateEditComponent } from '../../dialog/create-edit/create-edit.component';
+import { DeleteComponent } from '../../dialog/delete/delete.component';
 
 import { MovieMusic } from '../../interfaces/movieMusic';
 import { MovieMusicService } from '../../services/movie-music.service';
@@ -20,7 +31,11 @@ import { MovieMusicService } from '../../services/movie-music.service';
 export class MovieMusicComponent implements AfterViewInit, OnInit {
   displayedColumns: string[] = ['Title', 'MusicName', 'Actions'];
   dataSource = new MatTableDataSource<MovieMusic>();
-  constructor (private _movieMusicService: MovieMusicService){}
+  constructor (
+    private _movieMusicService: MovieMusicService,
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar,
+  ){}
 
   ngOnInit(): void {
     this.ListMovieMusics();
@@ -31,6 +46,53 @@ export class MovieMusicComponent implements AfterViewInit, OnInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
+
+  openDialogCreate(){
+    this.dialog.open(CreateEditComponent, {
+      disableClose: true,
+      width: "20rem",
+    }).afterClosed().subscribe(result => {
+      if (result === "Create"){
+        this.ListMovieMusics();
+      }
+    });
+  }
+
+  openDialogEdit(dataResponse: MovieMusic){
+    this.dialog.open(CreateEditComponent, {
+      disableClose: true,
+      width: "20rem",
+      data: dataResponse,
+    }).afterClosed().subscribe(result => {
+      if (result === "Edit"){
+        this.ListMovieMusics();
+      }
+    });
+  }
+
+  openDialogDelete(dataResponse: MovieMusic){
+    this.dialog.open(DeleteComponent, {
+      disableClose: true,
+      data: dataResponse,
+    }).afterClosed().subscribe(result => {
+      if (result === "Delete"){
+        this._movieMusicService.delete(dataResponse.id).subscribe({
+          next:(data) => {
+            this.showAlert("Register deleted", "OK");
+            this.ListMovieMusics();
+          }, error:(e) => {}
+        });
+      }
+    });
+  }
+
+  showAlert(message:string, action:string){
+    this._snackBar.open(message, action,{
+      horizontalPosition: "end",
+      verticalPosition: "bottom",
+      duration: 60000
+    });
+  }// showAlert.end
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

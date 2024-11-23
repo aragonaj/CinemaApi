@@ -1,46 +1,51 @@
 <div style="width: 70%; margin: 10rem auto;">
+  <h5>Directors</h5>
+  <button class="button button-action button-create" (click)="openDialogCreate()"><i
+      class="fa-regular fa-square-plus">New</i></button>
 
-    <!-- Contenedor-tabla -->
-    <div class="mat-elevation-z8">
-      <!-- Filtro -->
-      <mat-form-field>
-        <mat-label>Buscar...</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
-      </mat-form-field>
-  
-      <table mat-table [dataSource]="dataSource">
-  
-        <ng-container matColumnDef="DirectorName">
-          <th mat-header-cell *matHeaderCellDef> Director </th>
-          <td mat-cell *matCellDef="let element"> {{element.directorName}} </td>
-        </ng-container>
-  
-        <ng-container matColumnDef="Born">
-          <th mat-header-cell *matHeaderCellDef> Born </th>
-          <td mat-cell *matCellDef="let element"> {{element.born}} </td>
-        </ng-container>
-    
-        <ng-container matColumnDef="CountryName">
-          <th mat-header-cell *matHeaderCellDef> Country </th>
-          <td mat-cell *matCellDef="let element"> {{element.countryName}} </td>
-        </ng-container>
-    
-        <ng-container matColumnDef="Actions">
-          <th mat-header-cell *matHeaderCellDef> </th>
-          <td mat-cell *matCellDef="let element"> 
-            <button class="button button-action button-edit"><i class="fa-solid fa-pen-to-square">Edit</i></button> 
-            <button class="button button-action button-delete"><i class="fa-solid fa-trash-can">Delete</i></button>
+  <!-- Contenedor-tabla -->
+  <div class="mat-elevation-z8">
+    <!-- Filtro -->
+    <mat-form-field>
+      <mat-label>Buscar...</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="DirectorName">
+        <th mat-header-cell *matHeaderCellDef> Director </th>
+        <td mat-cell *matCellDef="let element"> {{element.directorName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Born">
+        <th mat-header-cell *matHeaderCellDef> Born </th>
+        <td mat-cell *matCellDef="let element"> {{element.born}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="CountryName">
+        <th mat-header-cell *matHeaderCellDef> Country </th>
+        <td mat-cell *matCellDef="let element"> {{element.countryName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let element">
+          <button class="button button-action button-edit" (click)="openDialogEdit(element)">
+            <i class="fa-solid fa-pen-to-square">Edit</i>
+          </button>
+          <button class="button button-action button-delete" (click)="openDialogDelete(element)">
+            <i class="fa-solid fa-trash-can">Delete</i>
+          </button>
         </td>
-        </ng-container>
-    
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
-    
-      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                     showFirstLastButtons
-                     aria-label="Select page">
-      </mat-paginator>
-    </div>
-    <i class="fa-solid fa-rotate-left"><a routerLink="/home">Back Home</a></i>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page">
+    </mat-paginator>
+  </div>
+  <i class="fa-solid fa-rotate-left"><a routerLink="/home">Get back</a></i>
 </div>
