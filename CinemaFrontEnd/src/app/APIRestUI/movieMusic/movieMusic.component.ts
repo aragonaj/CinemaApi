@@ -1,22 +1,12 @@
-// import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-
-import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { MatFormField, MatLabel } from '@angular/material/form-field';
-import {
-  MatDialog,
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogContent,
-  MatDialogTitle,
-} from '@angular/material/dialog';
+import { Component, AfterViewInit, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { Validators } from '@angular/forms';
 
 import { CreateEditComponent } from '../../dialog/create-edit/create-edit.component';
 import { DeleteComponent } from '../../dialog/delete/delete.component';
-
 import { MovieMusic } from '../../interfaces/movieMusic';
 import { MovieMusicService } from '../../services/movie-music.service';
 
@@ -31,6 +21,7 @@ import { MovieMusicService } from '../../services/movie-music.service';
 export class MovieMusicComponent implements AfterViewInit, OnInit {
   displayedColumns: string[] = ['Title', 'MusicName', 'Actions'];
   dataSource = new MatTableDataSource<MovieMusic>();
+
   constructor (
     private _movieMusicService: MovieMusicService,
     public dialog: MatDialog,
@@ -41,16 +32,16 @@ export class MovieMusicComponent implements AfterViewInit, OnInit {
     this.ListMovieMusics();
   }
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator; // para que no de error, se añade el signo de exclamación
-
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
-
   openDialogCreate(){
     this.dialog.open(CreateEditComponent, {
       disableClose: true,
       width: "20rem",
+      data: {
+        item: null, formConfig: {
+          title: ['', Validators.required],
+          musicName: ['', Validators.required],
+        }
+      }
     }).afterClosed().subscribe(result => {
       if (result === "Create"){
         this.ListMovieMusics();
@@ -62,7 +53,12 @@ export class MovieMusicComponent implements AfterViewInit, OnInit {
     this.dialog.open(CreateEditComponent, {
       disableClose: true,
       width: "20rem",
-      data: dataResponse,
+      data: {
+        item: dataResponse, formConfig: {
+          title: ['', Validators.required],
+          musicName: ['', Validators.required],
+        }
+      }
     }).afterClosed().subscribe(result => {
       if (result === "Edit"){
         this.ListMovieMusics();
@@ -93,6 +89,12 @@ export class MovieMusicComponent implements AfterViewInit, OnInit {
       duration: 60000
     });
   }// showAlert.end
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator; // para que no de error, se añade el signo de exclamación
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

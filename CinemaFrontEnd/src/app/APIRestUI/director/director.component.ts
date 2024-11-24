@@ -1,22 +1,12 @@
-// import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-
-import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { Component, AfterViewInit, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {
-  MatDialog,
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogContent,
-  MatDialogTitle,
-} from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { Validators } from '@angular/forms';
 
 import { CreateEditComponent } from '../../dialog/create-edit/create-edit.component';
 import { DeleteComponent } from '../../dialog/delete/delete.component';
-
 import { Director } from '../../interfaces/director';
 import { DirectorService } from '../../services/director.service';
 
@@ -38,22 +28,23 @@ export class DirectorComponent implements AfterViewInit, OnInit {
   ){}
 
   ngOnInit(): void {
-    this.ListDirectors();
-  }
-
-  @ViewChild(MatPaginator) paginator!: MatPaginator; // para que no de error, se añade el signo de exclamación
-
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+    this.listDirectors();
   }
 
   openDialogCreate(){
     this.dialog.open(CreateEditComponent, {
       disableClose: true,
       width: "20rem",
+      data: {
+        item: null, formConfig: {
+          directorName: ['', Validators.required],
+          born: ['', Validators.required],
+          countryName: ['', Validators.required],
+        }
+      }
     }).afterClosed().subscribe(result => {
       if (result === "Create"){
-        this.ListDirectors();
+        this.listDirectors();
       }
     });
   }
@@ -62,10 +53,16 @@ export class DirectorComponent implements AfterViewInit, OnInit {
     this.dialog.open(CreateEditComponent, {
       disableClose: true,
       width: "20rem",
-      data: dataResponse,
+      data: {
+        item: dataResponse, formConfig: {
+          directorName: ['', Validators.required],
+          born: ['', Validators.required],
+          countryName: ['', Validators.required],
+        }
+      }
     }).afterClosed().subscribe(result => {
       if (result === "Edit"){
-        this.ListDirectors();
+        this.listDirectors();
       }
     });
   }
@@ -79,11 +76,17 @@ export class DirectorComponent implements AfterViewInit, OnInit {
         this._directorService.delete(dataResponse.id).subscribe({
           next:(data) => {
             this.showAlert("Register deleted", "OK");
-            this.ListDirectors();
+            this.listDirectors();
           }, error:(e) => {}
         });
       }
     });
+  }
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator; // para que no de error, se añade el signo de exclamación
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
   }
 
   showAlert(message:string, action:string){
@@ -99,7 +102,7 @@ export class DirectorComponent implements AfterViewInit, OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  ListDirectors(){
+  listDirectors(){
     this._directorService.getList().subscribe({
       next:(dataResponse) => {
         //console.log(dataResponse);
