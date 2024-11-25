@@ -1,0 +1,11 @@
+.header {
+    height: 100%;
+    width: 100%;
+}
+
+.app-navbar {
+    position: relative;
+    display: block;
+}
+
+@media (max-width: 1000px) {}

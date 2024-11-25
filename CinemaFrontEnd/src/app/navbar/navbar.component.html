@@ -1,23 +1,34 @@
-<!-- contenido -->
-<!-- billbpard, special Offers, about Us, contact, apiHub -->
+<input type="checkbox" class="checkbox" id="checkbox" />
+<label for="checkbox" class="icons">
+    <i class="fa-solid fa-bars" id="bar-icon"></i>
+    <i class="fa-solid fa-xmark" id="close-icon"></i>
+</label>
 
-<div class="navbar-container">
+<div class="logo-login-container">
     <a class="link link-logo">Kerplunk Cinema</a>
-    <nav class="custom-nav">
-        <div class="link-container">
-            <a class="link link-nav" href="#billboard">Billboard</a>
-            <a class="link link-nav" href="#specialOffers">Special Offers</a>
-            <a class="link link-nav" href="#aboutUs">About Us</a>
-            <a class="link link-nav" href="#contact">Contact</a>
-            <a class="link link-nav" routerLink="/apiHub" *ngIf="login()">APIHub</a>
-        </div>
-    </nav>
-    <div class="container-button">
-        <button *ngIf="!login()" class="button button-login"><a routerLink="/login" 
-            class="link link-button">LogIn</a></button>
+    <div class="button-container-lg">
+        <button *ngIf="!login()" class="button button-login"><a routerLink="/login"
+                class="link link-button"><i class="fa-solid fa-user"></i>LogIn</a></button>
         <button *ngIf="!login()" class="button button-register"><a routerLink="/register"
-            class="link link-button">Register</a></button>
-        <button *ngIf="login()" class="button button-logout"><a (click)="logout()" 
-            class="link link-button">LogOut</a></button>
+                class="link link-button">Register</a></button>
+        <button *ngIf="login()" class="button button-logout"><a (click)="logout()"
+                class="link link-button">LogOut</a></button>
     </div>
 </div>
+
+<nav class="custom-nav">
+    <a class="link link-nav nav-item" style="--i:0;" href="#billboard">Billboard</a>
+    <a class="link link-nav nav-item" style="--i:1;" href="#specialOffers">Special Offers</a>
+    <a class="link link-nav nav-item" style="--i:2;" href="#aboutUs">About Us</a>
+    <a class="link link-nav nav-item" style="--i:3;" href="#contact">Contact</a>
+    <a class="link link-nav nav-item" style="--i:4;" routerLink="/apiHub" *ngIf="login()">APIHub</a>
+    <div class="button-container-sm">
+        <button *ngIf="!login()" class="button button-login"><a routerLink="/login"
+                class="link link-button"><i class="fa-solid fa-user"></i>LogIn</a></button>
+        <button *ngIf="!login()" class="button button-register"><a routerLink="/register"
+                class="link link-button">Register</a></button>
+        <button *ngIf="login()" class="button button-logout"><a (click)="logout()"
+                class="link link-button">LogOut</a></button>
+    </div>
+</nav>
+
