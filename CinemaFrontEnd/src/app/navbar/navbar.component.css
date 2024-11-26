@@ -111,6 +111,8 @@
 .link-nav {
     position: relative;
 
+    align-items: center;
+
     text-decoration: none;
 
     font-size: 1rem;
@@ -145,6 +147,16 @@
     left: 0;
     transform: translateX(0);
 }
+
+.link-nav .fa-circle-chevron-right {
+    font-size: 0.85rem;
+
+    transition: transform 0.5s;
+}
+
+.link-nav:hover .fa-circle-chevron-right {
+    transform: translateX(0.15rem); /* se desplazará a la derecha*/
+} 
 
 #checkbox {
     display: none;
@@ -216,6 +228,10 @@
         width: 18rem;
 
         margin: 0 auto;
+    }
+
+    .link-nav .fa-circle-chevron-right {
+        font-size: 0.8rem;
     }
 
     #checkbox:checked~.icons #close-icon {
