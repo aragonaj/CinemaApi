@@ -61,41 +61,61 @@
 .button {
     height: 2rem;
     width: 5rem;
+
     text-align: center;
+
     border: none;
     border-radius: 8px;
     margin-inline: 0.25rem;
+
     background-color: #023047;
-    color: #8ECAE6;
+
     cursor: pointer;
-    transition: background-color 0.75s ease-in-out, color 0.75s ease-in-out;
+    transition: 
+        background-color 0.75s ease-in-out, 
+        color 0.75s ease-in-out;
 }
 
 .button:hover {
-    background-color: #FB8500;
-    color: #F1F3F4 !important;
+    border: #023047 0.1rem solid;
+
+    background-color: #F1F3F4;
 }
 
-.link-button {
+.button .link-button {
     text-decoration: none;
     font-size: 0.85rem;
     font-weight: 500;
-    color: #8ECAE6;
+
+    color: #F1F3F4;
 }
 
-.fa-user {
+.button:hover .link-button {
+    color: #023047;
+}
+
+.button .fa-user {
     margin-right: 0.35rem;
+
     text-align: center;
+
     font-size: 0.75rem;
-    color: #8ECAE6;
+
+    color: #F1F3F4;
+}
+
+.button:hover .fa-user {
+    color: #023047;
 }
 
 .link-nav {
     position: relative;
 
     text-decoration: none;
+
     font-size: 1rem;
     font-weight: 500;
+
     color: #F1F3F4;
 
     transition: 0.3s ease;
@@ -126,10 +146,6 @@
     transform: translateX(0);
 }
 
-.hr-line {
-    display: none;
-}
-
 #checkbox {
     display: none;
 }
@@ -151,25 +167,33 @@
     }
 
     .custom-nav {
-        padding: 1rem 0;
+        display: flex;
+        flex-direction: column;
+
+        background-color: rgba(251, 133, 0, 0.75);
+
+        opacity: 0;
+        overflow: hidden;
     }
 
     .link-logo {
         font-size: 1rem;
     }
 
-    .custom-nav {
-        display: flex;
-        flex-direction: column;
-
-        opacity: 0;
-    }
-
     .link-nav {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+
         transform: translateY(-50px);
         transition: 0.3s ease;
+
         opacity: 0;
+        color: #023047;
+    }
+
+    .link-button {
+        font-size: 0.9rem;
+        font-weight: 500;
     }
 
     .custom-nav .nav-item {
@@ -181,14 +205,17 @@
     }
 
     .button-container-sm {
-        margin: 1rem auto;
+        width: 100%;
 
         display: grid;
-        grid-template-columns: auto auto;
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
     }
 
     .button {
-        width: 16rem;
+        width: 18rem;
+
+        margin: 0 auto;
     }
 
     #checkbox:checked~.icons #close-icon {
@@ -201,7 +228,10 @@
     }
 
     #checkbox:checked~.custom-nav {
-        height: 15rem;
+        height: 18rem;
+
+        /* filter: blur(2px) El problema es que también lo aplica a los otros elementos */
+        /* backdrop-filter: blur(2px); */
     }
 
     #checkbox:checked~.custom-nav {
