@@ -7,7 +7,27 @@ paleta de colores
     naranja         #FB8500 
 */
 
-/* html,
+/*
+fonts
+
+fonts-size
+    Barlow
+    titles I: 1.45rem 800
+    titles II: 1.35rem 700
+    titles III: 1.25rem 600
+
+    Montserrat
+    content I: 0.85rem
+*/
+
+/* fonts-family */
+/* Barlow: titles/ Montserrat: content*/
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* font-family: "Barlow Condensed", sans-serif; */
+/* font-family: "Montserrat", serif; */
+
+/* 
+html,
 body {
     height: 100%;
 }
@@ -15,7 +35,8 @@ body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-} */
+} 
+*/
 
 * {
     margin: 0;
@@ -25,6 +46,5 @@ body {
 
 body {
     position: relative;
-    font-family: "Roboto", sans-serif;
     background: #f4f7fa;
 }

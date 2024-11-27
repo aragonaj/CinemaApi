@@ -51,10 +51,15 @@
 
 .link-logo {
     display: block;
-    font-size: 1.25rem;
+
     text-decoration: none;
-    font-weight: 700;
+
+    font-size: 1.45rem;
+    font-weight: 800;
+    font-family: "Barlow Condensed", sans-serif;
+
     color: #023047;
+
     cursor: pointer;
 }
 
@@ -62,12 +67,13 @@
     height: 2rem;
     width: 5rem;
 
+    margin-inline: 0.25rem;
+
     text-align: center;
 
     border: none;
     border-radius: 8px;
-    margin-inline: 0.25rem;
-
+    
     background-color: #023047;
 
     cursor: pointer;
@@ -84,8 +90,9 @@
 
 .button .link-button {
     text-decoration: none;
+
     font-size: 0.85rem;
-    font-weight: 500;
+    font-family: "Montserrat", serif;
 
     color: #F1F3F4;
 }
@@ -95,7 +102,7 @@
 }
 
 .button .fa-user {
-    margin-right: 0.35rem;
+    margin-right: 0.25rem;
 
     text-align: center;
 
@@ -115,8 +122,9 @@
 
     text-decoration: none;
 
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-family: "Barlow Condensed", sans-serif;
 
     color: #F1F3F4;
 
@@ -129,7 +137,7 @@
 
 .link-nav::before {
     position: absolute;
-    top: 90%;
+    top: 105%;
     left: 50%;
 
     width: 0%;
