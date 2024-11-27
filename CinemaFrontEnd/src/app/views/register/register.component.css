@@ -6,7 +6,8 @@
 }
 
 .custom-form {
-    min-width: 9.375rem; /* 150px */
+    min-width: 9.375rem;
+    /* 150px */
     width: 100%;
 }
 
@@ -29,19 +30,23 @@
 }
 
 .button {
-    height: 2.45rem;
-    width: 7rem;
+    height: 2rem;
+    width: 10rem;
     text-align: center;
     border: none;
     border-radius: 8px;
     margin-inline: 0.25rem;
     background-color: #023047;
-    color: #8ECAE6 !important;
+    color: #F1F3F4 !important;
     cursor: pointer;
-    transition: background-color 0.75s ease-in-out, color 0.75s ease-in-out;
+    transition:
+        background-color 0.75s ease-in-out,
+        color 0.75s ease-in-out;
 }
 
 .button:hover {
+    border: #023047 0.10rem solid;
+
     background-color: #f1f3f4;
     color: #023047 !important;
 }

@@ -129,7 +129,7 @@
 
 .link-nav::before {
     position: absolute;
-    top: 100%;
+    top: 90%;
     left: 50%;
 
     width: 0%;

@@ -1,7 +1,7 @@
 <div class="card-container">
     <mat-card appearance="outlined">
         <mat-card-header class="custom-card-header">
-            <mat-card-title class="custom-card-title">Sign In</mat-card-title>
+            <mat-card-title class="custom-card-title">Log In</mat-card-title>
         </mat-card-header>
         <mat-card-content>
             <form class="custom-form" [formGroup]="formLogin">
@@ -14,9 +14,9 @@
                     <input matInput formControlName="password" type="password">
                 </mat-form-field>
                 <div class="container-button">
-                    <button class="button button-link" (click)="signIn()">Sign In</button>
+                    <button class="button button-link" (click)="signIn()">Log In</button>
                     <!-- <button class="button button-link" (click)="register()">Register</button> -->
-                    <button class="button button-link" (click)="back()">Back Home</button>
+                    <button class="button button-link" (click)="back()">Get Back</button>
                 </div>
             </form>
         </mat-card-content>
