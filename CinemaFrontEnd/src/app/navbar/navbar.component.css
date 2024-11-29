@@ -183,26 +183,25 @@
     .logo-login-container {
         padding: 1rem 5%;
 
-        background-color: #FB8500;
+        /* background-color: #FB8500; */
+
+        background: transparent;
     }
 
     .custom-nav {
-        display: flex;
-        flex-direction: column;
-
-        background-color: rgba(251, 133, 0, 0.75);
-
+        height: 0;
         opacity: 0;
-        overflow: hidden;
     }
 
     .link-logo {
-        font-size: 1rem;
+        font-size: 1.35rem;
+        font-weight: 700;
+        font-family: "Barlow Condensed", sans-serif;
     }
 
     .link-nav {
-        font-size: 0.9rem;
-        font-weight: 500;
+        font-size: 1.25rem;
+        font-weight: 600;
 
         transform: translateY(-50px);
         transition: 0.3s ease;
@@ -230,6 +229,8 @@
         display: grid;
         grid-template-columns: 1fr;
         gap: 0.25rem;
+
+        opacity: 0;
     }
 
     .button {
@@ -244,29 +245,43 @@
 
     #checkbox:checked~.icons #close-icon {
         display: block;
-
     }
 
     #checkbox:checked~.icons #bar-icon {
         display: none;
     }
 
+    #checkbox:checked~.logo-login-container {
+        background-color: #FB8500;
+    }
+
     #checkbox:checked~.custom-nav {
         height: 18rem;
 
-        /* filter: blur(2px) El problema es que también lo aplica a los otros elementos */
-        /* backdrop-filter: blur(2px); */
+        display: flex;
+        flex-direction: column;
+
+        background-color: rgba(251, 133, 0, 0.75);
+
+        opacity: 1;
+        transition: 0.4s ease-out;
     }
 
-    #checkbox:checked~.custom-nav {
+    /* #checkbox:checked~.custom-nav {
         opacity: 1;
         transition: 1s ease-out;
-    }
+    } */
 
     #checkbox:checked~.custom-nav .link-nav {
         transform: translateY(0);
-        opacity: 1;
-        transition: transform 0.5s ease, opacity 0.5s ease;
+        transition: transform 0.3s ease, opacity 0.3s ease;
         transition-delay: calc(.5s * var(--i));
+
+        opacity: 1;
+    }
+
+    #checkbox:checked~.custom-nav .button-container-sm {
+        transition: 0.3s ease-out;
+        opacity: 1;
     }
 }

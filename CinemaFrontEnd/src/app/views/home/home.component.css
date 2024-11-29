@@ -8,4 +8,8 @@
     display: block;
 }
 
-@media (max-width: 1000px) {}
+@media (max-width: 1000px) {
+    .app-navbar {
+        z-index: 2;
+    }
+}

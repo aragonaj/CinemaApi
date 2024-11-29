@@ -1,0 +1,186 @@
+/* .section-carousel {
+    width: 100%;
+    
+    position: relative;
+    margin-top: 0.25rem;
+
+    background-color: aquamarine;
+}
+
+.container__title-psinopsis {
+    max-width: 15%;
+
+    position: relative;
+    float: left;
+
+    background-color: blueviolet;
+}
+
+.carousel {
+    max-width: 85%;
+
+    position: relative;
+
+    background-color: cornflowerblue;
+}
+
+.slider-images {
+    display: flex;
+
+    aspect-ratio: 16 / 6;
+
+    border-radius: 10px;
+
+    overflow-x: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    box-shadow: 0 1.5px 3px -1px hsla(0, 0%, 0%, 0.25);
+}
+
+.slider-img {
+    flex: 1 0 100%;
+}
+
+.slider-nav {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    translate: translateX(-50%);
+
+    display: flex;
+    column-gap: 16px;
+
+    z-index: 1;
+}
+
+.slider-button {
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+    border: none;
+
+    background-color: black;
+    opacity: 0.75;
+
+    transition: opacity ease 0.3s;
+}
+
+.slider-button:hover {
+    opacity: 1;
+} */
+
+.section-carousel {
+    width: 100%;
+
+    margin-top: 0.25rem;
+
+    display: flex;
+    justify-content: center;
+}
+
+/* contenedor: datos de la película */
+
+.container__title-psinopsis {
+    position: relative;
+    float: left;
+
+    width: 40vw;
+    height: 30rem;
+
+    display: flex;
+    justify-content: center;
+
+    background-color: aquamarine;
+}
+
+.slider-title {
+    display: none;
+}
+
+.slider-title.active {
+    width: 80%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background-color: darkcyan;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 600;
+    font-family: "Barlow Condensed", sans-serif;
+}
+
+.psinopsis {
+    font-size: 0.85rem;
+    font-family: "Montserrat", serif;
+}
+
+.button-tickets {
+    width: 6rem;
+    height: 3rem;
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 0.85rem;
+    font-family: "Montserrat" serif;
+
+    background-color: #023047;
+    color: #F1F3F4;
+
+    transition: 0.75s ease;
+
+    cursor: pointer;
+}
+
+.button-tickets:hover {
+    border: #023047 2px solid;
+
+    background-color: #F1F3F4;
+    color: #023047;
+}
+
+/* contenedor: portada de la película */
+
+.carousel {
+    position: relative;
+    float: right;
+
+    width: 60vw;
+    height: 30rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    background-color: crimson;
+}
+
+.carousel .button-change {
+    width: 8rem;
+    height: 3rem;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: #023047;
+    color: #F1F3F4;
+
+    transition: 0.3 ease;
+}
+
+.carousel .button-change:hover {
+    border: #023047 2px solid;
+
+    background-color: #F1F3F4;
+    color: #023047;
+}
