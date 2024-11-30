@@ -1,21 +1,7 @@
 <section class="section section-carousel">
-    <!-- <div class="carousel">
-        <div class="slider-images">
-            <img class="slider-img" id="slider-1" src="carousel-image.jpg" alt=""/>
-            <img class="slider-img" id="slider-2" src="carousel-image.jpg" alt=""/>
-            <img class="slider-img" id="slider-3" src="carousel-image.jpg" alt=""/>
-            <img class="slider-img" id="slider-4" src="carousel-image.jpg" alt=""/>
-        </div>
-        <div class="slider-nav">
-            <a class="slider-button" id="" href="#slider-1"></a>
-            <a class="slider-button" id="" href="#slider-2"></a>
-            <a class="slider-button" id="" href="#slider-3"></a>
-            <a class="slider-button" id="" href="#slider-4"></a>
-        </div>
-    </div> -->
+    <div class="container__movie-data">
 
-    <div class="container__title-psinopsis">
-        <div class="slider-title active">
+        <div class="slider-data active">
             <h2 class="title">Movie 1</h2>
             <p class="psinopsis">
                 Psinopsis movie 1: este es el texto de la
@@ -24,7 +10,7 @@
             <button class="button button-tickets" href="#">Buy tickets</button>
         </div>
 
-        <div class="slider-title">
+        <div class="slider-data">
             <h2 class="title">Movie 2</h2>
             <p class="psinopsis">
                 Psinopsis movie 2: este es el texto de la
@@ -33,7 +19,7 @@
             <button class="button button-tickets" href="#">Buy tickets</button>
         </div>
 
-        <div class="slider-title">
+        <div class="slider-data">
             <h2 class="title">Movie 3</h2>
             <p class="psinopsis">
                 Psinopsis movie 3: este es el texto de la
@@ -42,7 +28,7 @@
             <button class="button button-tickets" href="#">Buy tickets</button>
         </div>
 
-        <div class="slider-title">
+        <div class="slider-data">
             <h2 class="title">Movie 4</h2>
             <p class="psinopsis">
                 Psinopsis movie 4: este es el texto de la
@@ -53,13 +39,25 @@
     </div>
 
     <div class="carousel">
-        <button class="button button-change" (click)="changePrev()">Previous</button>
-        <button class="button button-change" (click)="changeNext()">Next</button>
-        <!-- 
-        <img class="slider-img" id="slider-1" src="carousel-image.jpg" alt="" />
-        <img class="slider-img" id="slider-2" src="carousel-image.jpg" alt="" />
-        <img class="slider-img" id="slider-3" src="carousel-image.jpg" alt="" />
-        <img class="slider-img" id="slider-4" src="carousel-image.jpg" alt="" /> 
-        -->
+        
+        <div class="container__images-wrapper">
+            
+            <img class="image image-data img-active" id="image-1" src="" alt="image1" />
+            <img class="image image-data" id="image-2" src="" alt="image2" />
+            <img class="image image-data" id="image-3" src="" alt="image3" />
+            <img class="image image-data" id="image-4" src="" alt="image4" />
+
+            <div class="container-images-nav">
+                <button class="button button-carousel" (click)="showImage()"></button>
+                <button class="button button-carousel" (click)="showImage()"></button>
+                <button class="button button-carousel" (click)="showImage()"></button>
+                <button class="button button-carousel" (click)="showImage()"></button>
+            </div>
+        </div>
+
+        <div class="container__direction-button">
+            <i class="fa-solid fa-angle-left direction-button" (click)="changePrev()"></i>
+            <i class="fa-solid fa-angle-right direction-button" (click)="changeNext()"></i>
+        </div>
     </div>
 </section>
