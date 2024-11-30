@@ -1,13 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MovieService } from '../services/movie.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-carousel',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.css'
 })
-export class CarouselComponent {
+export class CarouselComponent implements OnInit {
+  movies: any[] = []; constructor(private _movieService: MovieService) {}
+  
+  ngOnInit(): void { 
+    this._movieService.getList().subscribe((data) =>{
+      this.movies = data;
+    });
+  }
   currentIndex: number = 0;
 
   changeNext() {

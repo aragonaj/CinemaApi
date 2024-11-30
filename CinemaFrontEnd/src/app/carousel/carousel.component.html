@@ -1,57 +1,23 @@
 <section class="section section-carousel">
+
     <div class="container__movie-data">
-
-        <div class="slider-data active">
-            <h2 class="title">Movie 1</h2>
-            <p class="psinopsis">
-                Psinopsis movie 1: este es el texto de la
-                psinopsis de la primera película que debe aparecer en el billboard.
-            </p>
-            <button class="button button-tickets" href="#image-1">Buy tickets</button>
-        </div>
-
-        <div class="slider-data">
-            <h2 class="title">Movie 2</h2>
-            <p class="psinopsis">
-                Psinopsis movie 2: este es el texto de la
-                psinopsis de la segunda película que debe aparecer en el billboard.
-            </p>
-            <button class="button button-tickets" href="#image-2">Buy tickets</button>
-        </div>
-
-        <div class="slider-data">
-            <h2 class="title">Movie 3</h2>
-            <p class="psinopsis">
-                Psinopsis movie 3: este es el texto de la
-                psinopsis de la tercera película que debe aparecer en el billboard.
-            </p>
-            <button class="button button-tickets" href="#image-3">Buy tickets</button>
-        </div>
-
-        <div class="slider-data">
-            <h2 class="title">Movie 4</h2>
-            <p class="psinopsis">
-                Psinopsis movie 4: este es el texto de la
-                psinopsis de la cuarta película que debe aparecer en el billboard.
-            </p>
-            <button class="button button-tickets" href="#image-4">Buy tickets</button>
+        <div *ngFor="let movie of movies; let i = index" class="slider-data" [class.active]="i === 0">
+            <h2 class="title">{{ movie.title }}</h2>
+            <span>Year: <p class="year">{{ movie.movieYear }}</p></span>
+            <span>Running time: <p class="running-time">{{ movie.runningTime }}</p></span>
+            <button class="button button-tickets">Buy tickets</button>
         </div>
     </div>
 
     <div class="carousel">
 
         <div class="container__images-wrapper">
-            
-            <img class="image image-data img-active" id="image-1" src="" alt="image1" />
-            <img class="image image-data" id="image-2" src="" alt="image2" />
-            <img class="image image-data" id="image-3" src="" alt="image3" />
-            <img class="image image-data" id="image-4" src="" alt="image4" />
+            <img *ngFor="let movie of movies; let i = index" class="image image-data" [class.img-active]="i === 0"
+                [id]="'image-' + (i + 1)" [src]="movie.imageUrl" [alt]="movie.title" />
 
             <div class="container-images-nav">
-                <button class="button button-carousel" (click)="showImage(0)"></button>
-                <button class="button button-carousel" (click)="showImage(1)"></button>
-                <button class="button button-carousel" (click)="showImage(2)"></button>
-                <button class="button button-carousel" (click)="showImage(3)"></button>
+                <button *ngFor="let movie of movies; let i = index" class="button button-carousel"
+                    (click)="showImage(i)"></button>
             </div>
         </div>
 
