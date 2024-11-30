@@ -36,13 +36,16 @@ export class CarouselComponent {
     images[this.currentIndex].classList.add('img-active');
   }
 
-  showImage() {
+  showImage(index: number) {
+    const items = document.querySelectorAll('.slider-data');
     const images = document.querySelectorAll('.image-data');
-
+    
+    items[this.currentIndex].classList.remove('active');
     images[this.currentIndex].classList.remove('img-active');
     
-    this.currentIndex = (this.currentIndex + 1 + images.length) % images.length;
+    this.currentIndex = index;
 
+    items[this.currentIndex].classList.add('active');
     images[this.currentIndex].classList.add('img-active');
   }
 }
