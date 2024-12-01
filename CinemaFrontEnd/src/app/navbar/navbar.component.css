@@ -223,6 +223,7 @@
         display: none;
     }
 
+    /* 
     .button-container-sm {
         width: 100%;
 
@@ -231,6 +232,16 @@
         gap: 0.25rem;
 
         opacity: 0;
+    } 
+    */
+
+    .button-container-sm {
+        width: 78%;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.25rem;
     }
 
     .button {

@@ -44,11 +44,19 @@
         </a>
 
         <div class="button-container-sm">
-                <button *ngIf="!login()" class="button button-login"><a routerLink="/login" class="link link-button"><i
-                                        class="fa-solid fa-user"></i>LogIn</a></button>
-                <button *ngIf="!login()" class="button button-register"><a routerLink="/register"
-                                class="link link-button">Register</a></button>
-                <button *ngIf="login()" class="button button-logout"><a (click)="logout()"
-                                class="link link-button">LogOut</a></button>
+
+                <button *ngIf="!login()" class="button button-login">
+                        <a routerLink="/login" class="link link-button">
+                                <i class="fa-solid fa-user"></i>LogIn
+                        </a>
+                </button>
+
+                <button *ngIf="!login()" class="button button-register">
+                        <a routerLink="/register" class="link link-button">Register</a>
+                </button>
+                
+                <button *ngIf="login()" class="button button-logout">
+                        <a (click)="logout()" class="link link-button">LogOut</a>
+                </button>
         </div>
 </nav>
