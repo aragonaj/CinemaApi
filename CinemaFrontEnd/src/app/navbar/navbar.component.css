@@ -183,8 +183,6 @@
     .logo-login-container {
         padding: 1rem 5%;
 
-        /* background-color: #FB8500; */
-
         background: transparent;
     }
 
@@ -223,18 +221,6 @@
         display: none;
     }
 
-    /* 
-    .button-container-sm {
-        width: 100%;
-
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 0.25rem;
-
-        opacity: 0;
-    } 
-    */
-
     .button-container-sm {
         width: 78%;
 
@@ -242,6 +228,8 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 0.25rem;
+
+        overflow: hidden;
     }
 
     .button {

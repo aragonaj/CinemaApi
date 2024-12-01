@@ -10,10 +10,10 @@ import { CommonModule } from '@angular/common';
   styleUrl: './carousel.component.css'
 })
 export class CarouselComponent implements OnInit {
-  movies: any[] = []; constructor(private _movieService: MovieService) {}
-  
-  ngOnInit(): void { 
-    this._movieService.getList().subscribe((data) =>{
+  movies: any[] = []; constructor(private _movieService: MovieService) { }
+
+  ngOnInit(): void {
+    this._movieService.getList().subscribe((data) => {
       this.movies = data;
     });
   }
@@ -48,10 +48,10 @@ export class CarouselComponent implements OnInit {
   showImage(index: number) {
     const items = document.querySelectorAll('.slider-data');
     const images = document.querySelectorAll('.image-data');
-    
+
     items[this.currentIndex].classList.remove('active');
     images[this.currentIndex].classList.remove('img-active');
-    
+
     this.currentIndex = index;
 
     items[this.currentIndex].classList.add('active');
