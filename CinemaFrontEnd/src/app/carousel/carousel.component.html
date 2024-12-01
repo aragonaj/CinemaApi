@@ -1,10 +1,13 @@
 <section class="section section-carousel">
 
     <div class="container__movie-data">
-        <div *ngFor="let movie of movies; let i = index" class="slider-data" [class.active]="i === 0">
+
+        <div *ngFor="let movie of movies; let i = index" 
+            class="slider-data" [class.active]="i === 0">
+            
             <h2 class="title">{{ movie.title }}</h2>
-            <span>Year: <p class="year">{{ movie.movieYear }}</p></span>
-            <span>Running time: <p class="running-time">{{ movie.runningTime }}</p></span>
+            <p class="year">Year: {{ movie.movieYear }}</p>
+            <p class="running-time">Running time: {{ movie.runningTime }}</p>
             <button class="button button-tickets">Buy tickets</button>
         </div>
     </div>
@@ -12,12 +15,15 @@
     <div class="carousel">
 
         <div class="container__images-wrapper">
-            <img *ngFor="let movie of movies; let i = index" class="image image-data" [class.img-active]="i === 0"
+            <img *ngFor="let movie of movies; let i = index" 
+                class="image image-data" [class.img-active]="i === 0"
                 [id]="'image-' + (i + 1)" [src]="movie.imageUrl" [alt]="movie.title" />
 
             <div class="container-images-nav">
-                <button *ngFor="let movie of movies; let i = index" class="button button-carousel"
-                    (click)="showImage(i)"></button>
+                <button *ngFor="let movie of movies; let i = index" 
+                    class="button button-carousel"
+                    (click)="showImage(i)">
+                </button>
             </div>
         </div>
 

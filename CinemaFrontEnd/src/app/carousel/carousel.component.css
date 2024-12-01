@@ -5,8 +5,6 @@
 
     display: flex;
     justify-content: center;
-
-    background-color: aqua;
 }
 
 /* contenedor: datos de la película */
@@ -20,8 +18,6 @@
 
     display: flex;
     justify-content: center;
-
-    background-color: cadetblue;
 }
 
 .slider-data {
@@ -88,8 +84,6 @@
     flex-direction: column;
     justify-content: center;
     gap: 0.25rem;
-
-    background-color: darkmagenta;
 }
 
 /* Pantalla de aparición de las películas */
@@ -144,8 +138,7 @@
 
 /* Contenedor de botones de dirección */
 
-.carousel
-.container__direction-button {
+.carousel .container__direction-button {
     position: absolute;
 
     width: 3%;
@@ -157,9 +150,7 @@
     gap: 0.25rem;
 }
 
-.carousel
-.container__direction-button
-.direction-button {
+.carousel .container__direction-button .direction-button {
     font-size: 2rem;
 
     color: #023047;
@@ -169,8 +160,80 @@
     cursor: pointer;
 }
 
-.carousel 
-.container__direction-button 
-.direction-button:hover {
+.carousel .container__direction-button .direction-button:hover {
     color: red;
+}
+
+@media (max-width: 1000px) {
+    .section-carousel {
+        position: relative;
+
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .container__movie-data {
+        width: 100%;
+        height: 30vh;
+
+        position: relative;
+    }
+
+    .slider-data {
+        display: none;
+    }
+    
+    .slider-data.active {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        padding: 0.75rem;
+    }
+
+    .slider-data .title {
+        display: block;
+
+        font-size: clamp(2.25rem, 12vw, 4rem);
+    }
+
+    .slider-data .year{
+        display: none;
+    }
+
+    .slider-data .running-time {
+        display: none;
+    }
+
+    .carousel {
+        width: 100%;
+        height: 22rem;
+    }
+
+    .container-images-nav {
+        display: flex;
+        justify-content: space-around;
+
+        transform: translateX(-50%);
+    }
+
+    .button-carousel {
+        width: 0.7rem;
+        height: 0.7rem;
+    
+        margin: 0 0.3rem;
+    
+        border: transparent;
+        border-radius: 50%;
+    
+        background-color: black;
+    
+        opacity: 0.65;
+    
+        transition: 0.5s ease;
+    }
 }
