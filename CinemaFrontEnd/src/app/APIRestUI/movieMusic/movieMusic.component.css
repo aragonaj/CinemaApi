@@ -1,5 +1,109 @@
-table {
+.api-content {
     width: 100%;
+
+    padding: 1.5rem 0;
+}
+
+.header-container {
+    width: 90%;
+
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.api-content-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    font-family: "Barlow Condensed", sans-serif;
+}
+
+.table-container {
+    width: 90%;
+
+    margin: 2rem auto;
+
+    overflow:auto;
+}
+
+.api-table {
+    width: 100%;
+}
+
+.mat-label {
+    font-size: 0.85rem;
+    font-family: "Montserrat", serif;
+}
+
+.mat-mdc-header-cell {
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-family: "Barlow Condensed", sans-serif;
+}
+
+.mat-mdc-cell {
+    font-size: 0.85rem;
+    font-family: "Montserrat", serif;
+}
+
+.mat-mdc-paginator {
+    font-size: 0.70rem;
+    font-family: "Montserrat", serif;
+}
+
+.button {
+    height: 2rem;
+    width: 5rem;
+
+    margin-inline: 0.25rem;
+
+    text-align: center;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 0.85rem;
+    font-family: "Montserrat", serif;
+
+    background-color: #023047;
+    color: #F1F3F4;
+
+    transition: 0.75s ease-in-out;
+}
+
+.button:hover {
+    border: #023047 0.10rem solid;
+
+    background-color: #F1F3F4;
+    color: #023047;
+}
+
+.button .icon {
+    margin-right: 0.25rem;
+}
+
+.link {
+    margin-inline: 0.25rem;
+
+    text-decoration: none;
+
+    font-size: 0.85rem;
+    font-family: "Montserrat", serif;
+
+    color: #023047;
+
+    transition: color 0.5s ease;
+}
+
+.link:hover {
+    color: #A6051A;
+}
+
+.fa-rotate-left {
+    padding-left: 1rem;
+    color: #A6051A;
 }
 
 /* filtro */ 
