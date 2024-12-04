@@ -28,6 +28,9 @@
     width: 80%;
     height: 100%;
 
+    margin: 0.25rem auto;
+    padding: 0.5rem 0.5rem;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -88,11 +91,15 @@
 
 /* Pantalla de aparición de las películas */
 
-.container__images-wrapper {
-    width: 55vw;
-    height: 30rem;
+.carousel .container__images-wrapper {
+    width: 100%;
+    height: 100%;
 
-    overflow: hidden;
+}
+
+.carousel .wrapper-holder {
+    width: 100%;
+    height: 100%;
 }
 
 .image {
@@ -135,6 +142,7 @@
 
 .button-carousel:hover {
     opacity: 1;
+    box-shadow: 0px 0px 7px 4px rgba(0, 0, 0, 0.6);
 }
 
 /* Contenedor de botones de dirección */
@@ -229,6 +237,8 @@
     .carousel {
         width: 100%;
         height: 22rem;
+
+        position: relative;
     }
 
     .container-images-nav {
@@ -238,14 +248,49 @@
         transform: translateX(-50%);
     }
 
-    .container__images-wrapper {
-        width: 100%;
+    .carousel .container__images-wrapper {
+        max-width: 95%;
+        height: 75vh;
 
-        display: flex;
+        margin: 0 auto;
+
+        border-radius: 10px;
+
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75);
     }
 
-    .image-data {
+    .carousel .wrapper-holder {
+        height: 100%;
         width: 100%;
+
+        display: grid;
+        grid-template-columns: repeat(4, 100%);
+
+        border-radius: 10px;
+
+        /* animation: slider 30s ease-in-out infinite; */
+    }
+
+    /* 
+    @keyframes slider {
+        0% { transform: translateX(0%); }
+        10% { transform: translateX(-100%); }
+        20% { transform: translateX(-100%); }
+        30% { transform: translateX(-200%); }
+        40% { transform: translateX(-200%); }
+        50% { transform: translateX(-200%); }
+        60% { transform: translateX(-300%); }
+        70% { transform: translateX(-300%); }
+        80% { transform: translateX(-300%); }
+        90% { transform: translateX(0%); }
+        100% { transform: translateX(0%); }
+    } 
+    */
+
+    .carousel .image-data {
+        background-position: center;
+
+        border-radius: 10px;
     }
 
     .button-carousel {
@@ -261,5 +306,13 @@
         opacity: 0.5;
 
         transition: 0.5s ease;
+    }
+
+    .button-carousel:hover {
+        box-shadow: 0px 0px 7px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .container__direction-button {
+        visibility: hidden;
     }
 }

@@ -17,6 +17,7 @@ export class CarouselComponent implements OnInit {
       this.movies = data;
     });
   }
+
   currentIndex: number = 0;
 
   changeNext() {

@@ -15,10 +15,16 @@
     <div class="carousel">
 
         <div class="container__images-wrapper">
-            <img *ngFor="let movie of movies; let i = index" 
-                class="image image-data" [class.img-active]="i === 0"
-                [id]="'image-' + (i + 1)" [src]="'images/image-' + (i + 1) + '.webp'" [alt]="'image-' + (i + 1)" />
-    
+
+            <div class="wrapper-holder">
+                <img *ngFor="let movie of movies; let i = index" 
+                    class="image image-data" 
+                    [class.img-active]="i === 0"
+                    [id]="'image-' + (i + 1)" 
+                    [src]="'images/image-' + (i + 1) + '.webp'" 
+                    [alt]="'image-' + (i + 1)" />
+            </div>
+
             <div class="container-images-nav">
                 <button *ngFor="let movie of movies; let i = index" 
                     class="button button-carousel"
