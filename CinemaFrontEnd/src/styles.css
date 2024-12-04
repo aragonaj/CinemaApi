@@ -47,4 +47,5 @@ body {
 body {
     position: relative;
     background: #f4f7fa;
+    scroll-behavior: smooth;
 }
