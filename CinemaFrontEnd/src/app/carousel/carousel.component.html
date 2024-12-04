@@ -17,8 +17,8 @@
         <div class="container__images-wrapper">
             <img *ngFor="let movie of movies; let i = index" 
                 class="image image-data" [class.img-active]="i === 0"
-                [id]="'image-' + (i + 1)" [src]="movie.imageUrl" [alt]="movie.title" />
-
+                [id]="'image-' + (i + 1)" [src]="'images/image-' + (i + 1) + '.webp'" [alt]="'image-' + (i + 1)" />
+    
             <div class="container-images-nav">
                 <button *ngFor="let movie of movies; let i = index" 
                     class="button button-carousel"
@@ -26,10 +26,12 @@
                 </button>
             </div>
         </div>
-
+    
         <div class="container__direction-button">
             <i class="fa-solid fa-angle-left direction-button" (click)="changePrev()"></i>
             <i class="fa-solid fa-angle-right direction-button" (click)="changeNext()"></i>
         </div>
     </div>
+    
+    
 </section>
