@@ -58,7 +58,8 @@ public partial class CinemaDbContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.CountryNavigation).WithMany(p => p.Directors)
+            entity.HasOne(d => d.CountryNavigation)
+                .WithMany()
                 .HasForeignKey(d => d.Country)
                 .HasConstraintName("FK__Director__Countr__5FB337D6");
         });
@@ -123,7 +124,8 @@ public partial class CinemaDbContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.CountryNavigation).WithMany(p => p.Musics)
+            entity.HasOne(d => d.CountryNavigation)
+                .WithMany()
                 .HasForeignKey(d => d.Country)
                 .HasConstraintName("FK__Music__Country__628FA481");
         });

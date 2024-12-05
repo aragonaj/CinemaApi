@@ -22,10 +22,10 @@ export class GenericService<T> {
     } 
     
     update(id: number, item: T): Observable<T> { 
-        return this._http.put<T>(`${this._apiUrl}/${id}`, item); 
+        return this._http.put<T>(`${this._apiUrl}/${ id }`, item); 
     } 
     
     delete(id: number): Observable<void> {
-         return this._http.delete<void>(`${this._apiUrl}/${id}`); 
+         return this._http.delete<void>(`${this._apiUrl}/${ id }`); 
     }
 }
