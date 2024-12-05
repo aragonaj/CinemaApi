@@ -88,7 +88,8 @@ public partial class CinemaDbContext : DbContext
                 .HasForeignKey(d => d.Director)
                 .HasConstraintName("FK__MovieDire__Direc__66603565");
 
-            entity.HasOne(d => d.MovieNavigation).WithMany(p => p.MovieDirectors)
+            entity.HasOne(d => d.MovieNavigation)
+                .WithMany()
                 .HasForeignKey(d => d.Movie)
                 .HasConstraintName("FK__MovieDire__Movie__656C112C");
         });
@@ -101,7 +102,8 @@ public partial class CinemaDbContext : DbContext
 
             entity.Property(e => e.Id).HasColumnName("id");
 
-            entity.HasOne(d => d.MovieNavigation).WithMany(p => p.MovieMusics)
+            entity.HasOne(d => d.MovieNavigation)
+                .WithMany()
                 .HasForeignKey(d => d.Movie)
                 .HasConstraintName("FK__MovieMusi__Movie__693CA210");
 
