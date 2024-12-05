@@ -40,7 +40,7 @@
     justify-content: center;
 }
 
-.button {
+.button-login {
     height: 2rem;
     width: 45%;
 
@@ -61,10 +61,38 @@
     transition: background-color 0.75s ease-in-out, color 0.75s ease-in-out;
 }
 
-.button:hover {
+.button-login:hover {
     border: #023047 0.10rem solid;
 
     background-color: #f1f3f4;
+    color: #023047 !important;
+}
+
+.button-getBack {
+    height: 2rem;
+    width: 45%;
+
+    text-align: center;
+
+    border: 2px solid #023047;
+    border-radius: 8px;
+
+    margin-inline: 0.25rem;
+
+    font-size: 0.85rem;
+    font-family: "Montserrat", serif;
+    
+
+    background-color: #F1F3F4;
+    color: #023047 !important;
+    cursor: pointer;
+    transition: background-color 0.75s ease-in-out, color 0.75s ease-in-out;
+}
+
+.button-getBack:hover {
+    border: #023047 0.10rem solid;
+
+    background-color: #cdcecf;
     color: #023047 !important;
 }
 
