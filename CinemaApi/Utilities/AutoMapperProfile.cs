@@ -9,6 +9,9 @@ namespace CinemaApi.Utilities
     {
         public AutoMapperProfile() {
             //Mapeos
+            #region ApiUser
+            CreateMap<ApiUser, ApiUserDTO>();
+            #endregion
             #region Country
             CreateMap<Country, CountryDTO>().ReverseMap();
             #endregion
