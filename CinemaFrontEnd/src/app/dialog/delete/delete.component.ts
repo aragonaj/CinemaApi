@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 
 import { Country } from '../../interfaces/country';
 import { CountryService } from '../../services/country.service';
+import { GenericService } from '../../services/generic.service';
 
 @Component({
   selector: 'app-delete',
@@ -26,13 +27,14 @@ import { CountryService } from '../../services/country.service';
   templateUrl: './delete.component.html',
   styleUrl: './delete.component.css'
 })
-export class DeleteComponent implements OnInit{
+export class DeleteComponent<T> implements OnInit{
   constructor(
-    private _dialogRef: MatDialogRef<DeleteComponent>,
+    private _dialogRef: MatDialogRef<DeleteComponent<T>>,
     private _formBuilder: FormBuilder,
     private _snackBar: MatSnackBar,
     private _countryService: CountryService,
-    @Inject(MAT_DIALOG_DATA) public dataResponse: Country,
+    private _genericService: GenericService<T>,
+    @Inject(MAT_DIALOG_DATA) public dataResponse: {formConfig: any, item: T},
   ){
 
   }// constructor.end
