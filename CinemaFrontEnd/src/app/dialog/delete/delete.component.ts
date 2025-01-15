@@ -35,13 +35,9 @@ export class DeleteComponent<T> implements OnInit{
     private _countryService: CountryService,
     private _genericService: GenericService<T>,
     @Inject(MAT_DIALOG_DATA) public dataResponse: {formConfig: any, item: T},
-  ){
+  ){}
 
-  }// constructor.end
-
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   deleteConfirm(){
     if (this.dataResponse){

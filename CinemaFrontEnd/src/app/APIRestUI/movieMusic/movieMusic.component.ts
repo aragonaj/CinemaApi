@@ -5,7 +5,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Validators } from '@angular/forms';
 
-import { CreateEditComponent } from '../../dialog/create-edit/create-edit.component';
 import { DeleteComponent } from '../../dialog/delete/delete.component';
 import { MovieMusic } from '../../interfaces/movieMusic';
 import { MovieMusicService } from '../../services/movie-music.service';
@@ -33,37 +32,37 @@ export class MovieMusicComponent implements AfterViewInit, OnInit {
   }
 
   openDialogCreate(){
-    this.dialog.open(CreateEditComponent, {
-      disableClose: true,
-      width: "20rem",
-      data: {
-        item: null, formConfig: {
-          title: ['', Validators.required],
-          musicName: ['', Validators.required],
-        }
-      }
-    }).afterClosed().subscribe(result => {
-      if (result === "Create"){
-        this.ListMovieMusics();
-      }
-    });
+    // this.dialog.open(CreateEditComponent, {
+    //   disableClose: true,
+    //   width: "20rem",
+    //   data: {
+    //     item: null, formConfig: {
+    //       title: ['', Validators.required],
+    //       musicName: ['', Validators.required],
+    //     }
+    //   }
+    // }).afterClosed().subscribe(result => {
+    //   if (result === "Create"){
+    //     this.ListMovieMusics();
+    //   }
+    // });
   }
 
   openDialogEdit(dataResponse: MovieMusic){
-    this.dialog.open(CreateEditComponent, {
-      disableClose: true,
-      width: "20rem",
-      data: {
-        item: dataResponse, formConfig: {
-          title: ['', Validators.required],
-          musicName: ['', Validators.required],
-        }
-      }
-    }).afterClosed().subscribe(result => {
-      if (result === "Edit"){
-        this.ListMovieMusics();
-      }
-    });
+    // this.dialog.open(CreateEditComponent, {
+    //   disableClose: true,
+    //   width: "20rem",
+    //   data: {
+    //     item: dataResponse, formConfig: {
+    //       title: ['', Validators.required],
+    //       musicName: ['', Validators.required],
+    //     }
+    //   }
+    // }).afterClosed().subscribe(result => {
+    //   if (result === "Edit"){
+    //     this.ListMovieMusics();
+    //   }
+    // });
   }
 
   openDialogDelete(dataResponse: MovieMusic){

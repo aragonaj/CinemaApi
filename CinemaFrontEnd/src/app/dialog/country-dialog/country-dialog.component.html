@@ -1,0 +1,22 @@
+<h5 mat-dialog-title>{{ nameAction }} country</h5>
+<div class="contianer-content" mat-dialog-content>
+
+    <form class="form-custom" [formGroup]="formGroup">
+        <mat-grid-list cols="1" rowHeight="5rem">
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Country name:</mat-label>
+                    <input matInput formControlName="countryName" autocomplete="on"/>
+                </mat-form-field>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+</div>
+<div class="button-container" mat-dialog-actions>
+    <button class="button button-close" mat-button mat-dialog-close>
+        <i class="fa-solid fa-rectangle-xmark"></i>Close
+    </button>
+    <button class="button button-save" (click)="saveItem()" [disabled]="formGroup.invalid">
+        {{ buttonAction }}
+    </button>
+</div>

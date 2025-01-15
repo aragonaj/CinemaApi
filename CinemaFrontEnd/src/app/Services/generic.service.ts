@@ -26,6 +26,6 @@ export class GenericService<T> {
     } 
     
     delete(id: number): Observable<void> {
-         return this._http.delete<void>(`${this._apiUrl}/${ id }`); 
+         return this._http.delete<void>(`${this._apiUrl}delete/${ id }`); 
     }
 }

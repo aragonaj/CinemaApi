@@ -5,7 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Validators } from '@angular/forms';
 
-import { CreateEditComponent } from '../../dialog/create-edit/create-edit.component';
+
 import { DeleteComponent } from '../../dialog/delete/delete.component';
 
 import { Music } from '../../interfaces/music';
@@ -33,39 +33,39 @@ export class MusicComponent implements AfterViewInit, OnInit {
   }
 
   openDialogCreate(){
-    this.dialog.open(CreateEditComponent, {
-      disableClose: true,
-      width: "20rem",
-      data: {
-        item: null, formConfig: {
-          musicName: ['', Validators.required],
-          born: ['', Validators.required],
-          countryName: ['', Validators.required],
-        }
-      }
-    }).afterClosed().subscribe(result => {
-      if (result === "Create"){
-        this.ListMusics();
-      }
-    });
+    // this.dialog.open(CreateEditComponent, {
+    //   disableClose: true,
+    //   width: "20rem",
+    //   data: {
+    //     item: null, formConfig: {
+    //       musicName: ['', Validators.required],
+    //       born: ['', Validators.required],
+    //       countryName: ['', Validators.required],
+    //     }
+    //   }
+    // }).afterClosed().subscribe(result => {
+    //   if (result === "Create"){
+    //     this.ListMusics();
+    //   }
+    // });
   }
 
   openDialogEdit(dataResponse: Music){
-    this.dialog.open(CreateEditComponent, {
-      disableClose: true,
-      width: "20rem",
-      data: {
-        item: dataResponse, formConfig: {
-          musicName: ['', Validators.required],
-          born: ['', Validators.required],
-          countryName: ['', Validators.required],
-        }
-      }
-    }).afterClosed().subscribe(result => {
-      if (result === "Edit"){
-        this.ListMusics();
-      }
-    });
+    // this.dialog.open(CreateEditComponent, {
+    //   disableClose: true,
+    //   width: "20rem",
+    //   data: {
+    //     item: dataResponse, formConfig: {
+    //       musicName: ['', Validators.required],
+    //       born: ['', Validators.required],
+    //       countryName: ['', Validators.required],
+    //     }
+    //   }
+    // }).afterClosed().subscribe(result => {
+    //   if (result === "Edit"){
+    //     this.ListMusics();
+    //   }
+    // });
   }
 
   openDialogDelete(dataResponse: Music){

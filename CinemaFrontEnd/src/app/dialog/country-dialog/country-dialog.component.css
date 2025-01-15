@@ -1,0 +1,62 @@
+.mat-mdc-dialog-surface .mdc-dialog__surface{
+    height: 100vh;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75);
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 1.35rem;
+    font-weight: 700;
+    font-family: "Barlow Condensed", sans-serif;
+}
+
+.mat-grid-tile .ng-star-inserted {
+    padding: 0 0.2rem;
+}
+
+.formField {
+    width: 100%;
+
+    font-size: 0.85rem;
+    font-family: "Montserrat", serif;
+}
+
+.button-container {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button {
+    height: 2rem;
+    width: 48%;
+
+    text-align: center;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 0.85rem;
+    font-family: "Montserrat", serif;
+
+    background-color: #023047;
+    color: #F1F3F4;
+
+    transition: 0.75s ease-in-out;
+}
+
+.button:hover {
+    border: #023047 0.10rem solid;
+
+    background-color: #F1F3F4;
+    color: #023047;
+}
+
+.fa-rectangle-xmark {
+    margin-right: 0.25rem;
+}

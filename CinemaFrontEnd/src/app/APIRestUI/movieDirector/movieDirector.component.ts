@@ -5,7 +5,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Validators } from '@angular/forms';
 
-import { CreateEditComponent } from '../../dialog/create-edit/create-edit.component';
 import { DeleteComponent } from '../../dialog/delete/delete.component';
 import { MovieDirector } from '../../interfaces/movieDirector';
 import { MovieDirectorService } from '../../services/movie-director.service';
@@ -33,37 +32,37 @@ export class MovieDirectorComponent implements AfterViewInit, OnInit {
   }
 
   openDialogCreate(){
-    this.dialog.open(CreateEditComponent, {
-      disableClose: true,
-      width: "20rem",
-      data: {
-        item: null, formConfig: {
-          title: ['', Validators.required],
-          directorName: ['', Validators.required],
-        }
-      }
-    }).afterClosed().subscribe(result => {
-      if (result === "Create"){
-        this.ListMovieDirectors();
-      }
-    });
+    // this.dialog.open(CreateEditComponent, {
+    //   disableClose: true,
+    //   width: "20rem",
+    //   data: {
+    //     item: null, formConfig: {
+    //       title: ['', Validators.required],
+    //       directorName: ['', Validators.required],
+    //     }
+    //   }
+    // }).afterClosed().subscribe(result => {
+    //   if (result === "Create"){
+    //     this.ListMovieDirectors();
+    //   }
+    // });
   }
 
   openDialogEdit(dataResponse: Movie){
-    this.dialog.open(CreateEditComponent, {
-      disableClose: true,
-      width: "20rem",
-      data: {
-        item: dataResponse, formConfig: {
-          title: ['', Validators.required],
-          directorName: ['', Validators.required],
-        }
-      }
-    }).afterClosed().subscribe(result => {
-      if (result === "Edit"){
-        this.ListMovieDirectors();
-      }
-    });
+    // this.dialog.open(CreateEditComponent, {
+    //   disableClose: true,
+    //   width: "20rem",
+    //   data: {
+    //     item: dataResponse, formConfig: {
+    //       title: ['', Validators.required],
+    //       directorName: ['', Validators.required],
+    //     }
+    //   }
+    // }).afterClosed().subscribe(result => {
+    //   if (result === "Edit"){
+    //     this.ListMovieDirectors();
+    //   }
+    // });
   }
 
   openDialogDelete(dataResponse: MovieDirector){

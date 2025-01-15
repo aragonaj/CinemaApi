@@ -6,8 +6,12 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Validators } from '@angular/forms';
 import { Country } from '../../interfaces/country';
 import { CountryService } from '../../services/country.service';
-import { CreateEditComponent } from '../../dialog/create-edit/create-edit.component';
+import { CountryDialogComponent } from '../../dialog/country-dialog/country-dialog.component';
 import { DeleteComponent } from '../../dialog/delete/delete.component';
+
+
+// 
+// https://www.youtube.com/watch?v=7USizyX1tAQ
 
 @Component({
   selector: 'app-country',
@@ -28,8 +32,8 @@ export class CountryComponent implements AfterViewInit, OnInit {
     this.listCountries();
   }
 
-  openDialogCreate() {
-    this.dialog.open(CreateEditComponent, {
+  addNewCountry() {
+    this.dialog.open(CountryDialogComponent, {
       disableClose: true,
       width: "20rem",
       data: {
@@ -38,23 +42,24 @@ export class CountryComponent implements AfterViewInit, OnInit {
         }
       }
     }).afterClosed().subscribe(result => {
-      if (result === "Create") {
+      if (result === "ok__added") {
         this.listCountries();
       }
     });
   }
 
-  openDialogEdit(dataResponse: Country) {
-    this.dialog.open(CreateEditComponent, {
+  openDialogEdit(dataCountry: Country) {
+    this.dialog.open(CountryDialogComponent, {
       disableClose: true,
       width: "20rem",
-      data: {
-        item: dataResponse, formConfig: {
-          countryName: ['', Validators.required]
-        }
-      }
+      data: dataCountry
+      // data: {
+      //   item: dataCountry, formConfig: {
+      //     countryName: ['', Validators.required]
+      //   }
+      // }
     }).afterClosed().subscribe(result => {
-      if (result === "Edit") {
+      if (result === "ok__updated") {
         this.listCountries();
       }
     });

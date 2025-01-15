@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Validators } from '@angular/forms';
-import { CreateEditComponent } from '../../dialog/create-edit/create-edit.component';
+
 import { DeleteComponent } from '../../dialog/delete/delete.component';
 import { Movie } from '../../interfaces/movie';
 import { MovieService } from '../../services/movie.service';
@@ -32,39 +32,39 @@ export class MovieComponent implements AfterViewInit, OnInit {
   }
 
   openDialogCreate(){
-    this.dialog.open(CreateEditComponent, {
-      disableClose: true,
-      width: "20rem",
-      data: {
-        item: null, formConfig: {
-          title: ['', Validators.required],
-          movieYear: ['', Validators.required],
-          runningTime: ['', Validators.required],
-        }
-      }
-    }).afterClosed().subscribe(result => {
-      if (result === "Create"){
-        this.ListMovies();
-      }
-    });
+    // this.dialog.open(CreateEditComponent, {
+    //   disableClose: true,
+    //   width: "20rem",
+    //   data: {
+    //     item: null, formConfig: {
+    //       title: ['', Validators.required],
+    //       movieYear: ['', Validators.required],
+    //       runningTime: ['', Validators.required],
+    //     }
+    //   }
+    // }).afterClosed().subscribe(result => {
+    //   if (result === "Create"){
+    //     this.ListMovies();
+    //   }
+    // });
   }
 
   openDialogEdit(dataResponse: Movie){
-    this.dialog.open(CreateEditComponent, {
-      disableClose: true,
-      width: "20rem",
-      data: {
-        item: dataResponse, formConfig: {
-          title: ['', Validators.required],
-          movieYear: ['', Validators.required],
-          runningTime: ['', Validators.required],
-        }
-      }
-    }).afterClosed().subscribe(result => {
-      if (result === "Edit"){
-        this.ListMovies();
-      }
-    });
+    // this.dialog.open(CreateEditComponent, {
+    //   disableClose: true,
+    //   width: "20rem",
+    //   data: {
+    //     item: dataResponse, formConfig: {
+    //       title: ['', Validators.required],
+    //       movieYear: ['', Validators.required],
+    //       runningTime: ['', Validators.required],
+    //     }
+    //   }
+    // }).afterClosed().subscribe(result => {
+    //   if (result === "Edit"){
+    //     this.ListMovies();
+    //   }
+    // });
   }
 
   openDialogDelete(dataResponse: Movie){
