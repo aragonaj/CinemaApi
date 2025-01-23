@@ -1,7 +1,6 @@
 export interface Director {
     id:number,
     directorName:string,
-    born:number,
+    born:string,
     country:number,
-    countryName:string
 }

@@ -4,13 +4,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Validators } from '@angular/forms';
+
 import { Country } from '../../interfaces/country';
 import { CountryService } from '../../services/country.service';
 import { CountryDialogComponent } from '../../dialog/country-dialog/country-dialog.component';
 import { DeleteComponent } from '../../dialog/delete/delete.component';
 
-
-// 
 // https://www.youtube.com/watch?v=7USizyX1tAQ
 
 @Component({
@@ -32,7 +31,7 @@ export class CountryComponent implements AfterViewInit, OnInit {
     this.listCountries();
   }
 
-  addNewCountry() {
+  openDialogCreate() {
     this.dialog.open(CountryDialogComponent, {
       disableClose: true,
       width: "20rem",

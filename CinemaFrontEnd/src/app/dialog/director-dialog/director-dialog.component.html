@@ -1,0 +1,41 @@
+<h5 mat-dialog-title>{{ nameAction }} director</h5>
+<div class="contianer-content" mat-dialog-content>
+
+    <form class="form-custom" [formGroup]="formGroup">
+        <mat-grid-list cols="1" rowHeight="5rem">
+            <!-- Nombre del director -->
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Director name:</mat-label>
+                    <input matInput formControlName="directorName" autocomplete="on"/>
+                </mat-form-field>
+            </mat-grid-tile>
+            <!-- Fecha de nacimiento -->
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Born:</mat-label>
+                    <input matInput formControlName="born" autocomplete="on"/>
+                </mat-form-field>
+            </mat-grid-tile>
+            <!-- Pais -->
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Country name:</mat-label>
+                    <mat-select formControlName="country">
+                        <mat-option *ngFor="let country of countryList" [value]="country.id">
+                            {{ country.countryName }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+</div>
+<div class="button-container" mat-dialog-actions>
+    <button class="button button-close" mat-button mat-dialog-close>
+        <i class="fa-solid fa-rectangle-xmark"></i>Close
+    </button>
+    <button mat-raised-button class="button button-save" (click)="saveItem()" [disabled]="formGroup.invalid">
+        {{ buttonAction }}
+    </button>
+</div>
