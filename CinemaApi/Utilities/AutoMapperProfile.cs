@@ -17,16 +17,18 @@ namespace CinemaApi.Utilities
             #endregion
 
             #region Director
+            // Mapping from Director to DirectorDTO
             CreateMap<Director, DirectorDTO>()
-                .ForMember(destino => 
-                    destino.CountryName, 
-                    opt => opt.MapFrom(origen => 
+                .ForMember(destino =>
+                    destino.CountryName,
+                    opt => opt.MapFrom(origen =>
                         origen.CountryNavigation.CountryName));
 
-            //CreateMap<DirectorDTO, Director>()
-            //    .ForMember(destino =>
-            //        destino.CountryNavigation.CountryName,
-            //        opt => opt.Ignore());
+            // Mapping from DirectorDTO to Director
+            CreateMap<DirectorDTO, Director>()
+                .ForMember(destino =>
+                    destino.CountryNavigation,
+                    opt => opt.Ignore()); 
             #endregion
 
             #region MovieDirector

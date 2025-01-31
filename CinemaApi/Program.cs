@@ -187,6 +187,7 @@ app.MapPost("/country/save", async (Country model, ICountryService _countryServi
         return Results.StatusCode(StatusCodes.Status500InternalServerError);
     }
 });
+
 app.MapPost("/movie/save", async (Movie model, IMovieService _movieService, IMapper _mapper) => {
     var _movie = _mapper.Map<Movie>(model);
     var _newMovie = await _movieService.Add(_movie);
@@ -303,6 +304,7 @@ app.MapPut("/movie/update/{id}", async (int id, MovieDTO model, IMovieService _m
 });
 app.MapPut("/director/update/{id}", async (int id, DirectorDTO model, IDirectorService _directorService, IMapper _mapper) => {
     var _found = await _directorService.Get(id);
+
     if (_found is null)
     {
         return Results.NotFound();
@@ -312,8 +314,7 @@ app.MapPut("/director/update/{id}", async (int id, DirectorDTO model, IDirectorS
 
     _found.DirectorName = _director.DirectorName;
     _found.Born = _director.Born;
-    //_found.Country = _director.Country;
-    _found.CountryNavigation = _director.CountryNavigation;
+    _found.Country = _director.Country;
 
     var respuesta = await _directorService.Update(_found);
 

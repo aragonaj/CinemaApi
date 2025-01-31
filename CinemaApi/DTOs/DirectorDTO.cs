@@ -10,6 +10,7 @@
 
         public int? Country { get; set; }
 
-        public string? CountryName {  get; set; } 
+        public string? CountryName { get; set; }
+
     }
 }
